@@ -1,0 +1,264 @@
+---
+import Collapse from '@/components/Collapse.astro'
+import Timeline from '@/components/Timeline.astro'
+import PageLayout from '@/layouts/CommonPage.astro'
+import Comment from '@/components/Comment.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+import Button from '@/components/Button.astro'
+import Substats from '@/components/about/Substats.astro'
+import Spoiler from '@/components/Spoiler.astro'
+
+const headings = [
+  {
+    depth: 2,
+    slug: 'general-talk',
+    text: 'General Talk'
+  },
+  {
+    depth: 2,
+    slug: 'tools',
+    text: 'Tools'
+  },
+  {
+    depth: 2,
+    slug: 'social-networks',
+    text: 'Social Networks'
+  },
+  {
+    depth: 2,
+    slug: 'gossips',
+    text: 'Gossips'
+  },
+  {
+    depth: 2,
+    slug: 'about-blog',
+    text: 'About Blog'
+  }
+]
+---
+
+<PageLayout title='About' headings={headings} info='/links'>
+  <p>Developer / Designer</p>
+  <p>
+    Full-time undergraduate student of Computer Science. Slightly accomplished in researching big
+    data, front-end development and neural network learning.
+  </p>
+  <p>My motto: Stay hungry, Stay foolish. <Spoiler>求知若愚，虚怀若谷。</Spoiler></p>
+  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' style='ahead' />
+  <!-- general-talk -->
+  <h2 id='general-talk'>General Talk</h2>
+  <ul>
+    <li>Favorite editors: Neovim and VSCode (sometimes Sublime Text is also used).</li>
+    <li>Adobe Suit is quite proficient, with late stage UI OCD.</li>
+    <li>
+      A wide range of music preferences, including Japanese, electronic music, niche Mandarin, and
+      minority languages. I am used to randomly dialing songs online using Apple Music, and
+      occasionally use NetEase Cloud.
+    </li>
+    <li>
+      Often play Genshin Impact, Arknights. Tencent and NetEase Games have not yet obtained their
+      real name.
+    </li>
+  </ul>
+
+  <!-- tools -->
+  <h2 id='tools'>Tools</h2>
+  <p>Tools and software I use daily</p>
+  <ToolSection
+    class='mb-5'
+    title='Design'
+    tools={[
+      {
+        name: 'Photoshop',
+        description: 'Picture Editing',
+        href: 'https://www.adobe.com/products/photoshop',
+        iconPath: 'photoshop'
+      },
+      {
+        name: 'Premiere Pro',
+        description: 'Video Editing',
+        href: 'https://www.adobe.com/products/premiere',
+        iconPath: 'premiere'
+      },
+      {
+        name: 'Animate',
+        description: 'Animation Creating',
+        href: 'https://www.adobe.com/products/animate',
+        iconPath: 'animate'
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Productivity'
+    tools={[
+      {
+        name: 'Firefox',
+        description: 'Broswer',
+        href: 'https://www.mozilla.org/en-US/firefox',
+        iconPath: 'firefox'
+      },
+      {
+        name: 'Zerotier',
+        description: 'Remote Collaboration',
+        href: 'https://www.zerotier.com//',
+        iconPath: 'zerotier'
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Development'
+    tools={[
+      {
+        name: 'VS Code',
+        description: 'IDE',
+        href: 'https://code.visualstudio.com/',
+        iconPath: 'vscode'
+      },
+      {
+        name: 'Neovim',
+        description: 'IDE',
+        href: 'https://neovim.io/',
+        iconPath: 'neovim'
+      },
+      {
+        name: 'Sublime Text',
+        description: 'IDE',
+        href: 'https://www.sublimetext.com/',
+        iconPath: 'sublime'
+      },
+      {
+        name: 'Unity Editor',
+        description: 'Game Engine',
+        href: 'https://unity.com/',
+        iconPath: 'unity'
+      },
+      {
+        name: 'Android Studio',
+        description: 'Android Development',
+        href: 'https://developer.android.com/studio',
+        iconPath: 'androidstudio'
+      },
+      {
+        name: 'QT',
+        description: 'C++ Compontent Development',
+        href: 'https://www.qt.io/',
+        iconPath: 'qt'
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Environment'
+    tools={[
+      {
+        name: 'Arch Linux',
+        description: 'Linux Distribution',
+        href: 'https://archlinux.org/',
+        iconPath: 'archlinux'
+      },
+      {
+        name: 'MacOS Sonoma',
+        description: 'MacBook Air',
+        href: 'https://www.apple.com/macos/',
+        iconPath: 'apple'
+      },
+      {
+        name: 'Windows 11',
+        description: 'Leigion Y7000P',
+        href: 'https://news.microsoft.com/windows11-general-availability/',
+        iconPath: 'windows11'
+      }
+    ]}
+  />
+  <!-- social-networks -->
+  <h2 id='social-networks'>Social Networks</h2>
+  <p>
+    The main network usernames include <code>CWorld</code>, <code>CWorld0</code>, and <code
+      >CWorld1</code
+    >.
+  </p>
+  <Substats />
+
+  <!-- gossips -->
+  <h2 id='gossips'>Gossips</h2>
+  <Collapse title='Why called CWorld?'>
+    The original name is actually ChangingWorld, and "C" is the elder of high-level languages in the
+    programming world - C Language, also known as the crazy initials, is a support and hope for the
+    perseverance spirit in the field of computer science. And ChangingWorld means although world is
+    changing , but I won't follow the trend, be myself, be unique. (Wrote it randomly)
+  </Collapse>
+  <Collapse title='What kind of music games are playing?'>
+    I have tried almost all the games in the music game circle. Commonly played include Cytus II,
+    Lanota, Musedash, etc. I have played Yang Chun Bai Xue, Phigros, Rhythm Doctor, and Ice and Fire
+    Dance before.
+  </Collapse>
+  <!-- about-blog -->
+  <h2 id='about-blog'>About Blog</h2>
+  <Timeline
+    events={[
+      {
+        date: '2019-06-14',
+        content: 'Website sprouted up and started using Hexo to build the blog'
+      },
+      { date: '2019-07-08', content: 'Website has been deployed the first version on Gitee' },
+      {
+        date: '2019-07-31',
+        content:
+          'Bought my first domain in life <a href="https://cworld.top/" target="_blank">cworld.top</a>'
+      },
+      {
+        date: '2020-01-24',
+        content:
+          'Website runned in Coding, with the domain <a href="https://blog.cworld.top/" target="_blank">blog.cworld.top</a> bounded'
+      },
+      { date: '2022-02-12', content: 'Moved to Netlify and open source it on Github' },
+      {
+        date: '2022-03-01',
+        content:
+          'Website successfully signed and joined <a href="https://www.foreverblog.cn/blog/2788.html" target="_blank">Forever Blog</a>'
+      },
+      {
+        date: '2024-04-29',
+        content:
+          'Website refectered using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+      }
+    ]}
+  />
+  <p>
+    The smooth operation and personalized customization of website also rely on the resources and
+    technical support provided by the following excellent projects/service providers:
+  </p>
+  <ul>
+    <li>Domain：<a href='https://cworld.top/' target='_blank'>cworld.top</a></li>
+    <li>
+      Framework & Theme：<a href='https://astro.build/' target='_blank'>Astro</a> + <a
+        href='https://github.com/srleom/astro-theme-resume'
+        target='_blank'>Astro Theme Resume</a
+      >
+    </li>
+    <li>
+      Site hosting：<a href='https://www.netlify.com/' target='_blank'>Netlify</a>、<a
+        href='https://vercel.com/'
+        target='_blank'>Vercel</a
+      >
+    </li>
+    <li>
+      CI/CD：<a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
+    </li>
+    <!-- <li>资源加速：<a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
+    <li>Comment system：<a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <li>
+      Visits：<a href='https://console.leancloud.app/' target='_blank'>LeanCloud</a> +
+      <a href='https://waline.js.org/' target='_blank'>Waline</a>
+    </li>
+    <!-- <li>
+      其他统计：<a href='https://github.com/spencerwooo/substats' target='_blank'>Substats</a>、<a
+        href='https://github.com/Rock-Candy-Tea/hexo-circle-of-friends'
+        target='_blank'>Circle of friends</a
+      >
+    </li> -->
+  </ul>
+  <Comment slot='bottom' />
+</PageLayout>

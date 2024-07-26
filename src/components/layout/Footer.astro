@@ -1,0 +1,77 @@
+---
+const year = new Date().getFullYear()
+---
+
+<footer class='mx-auto mt-24 w-full'>
+  <div class='border-t border-border pt-5'>
+    <div
+      class='flex flex-col items-center gap-y-3 sm:flex sm:flex-row sm:items-center sm:justify-between sm:gap-y-0'
+    >
+      <div class='flex gap-x-2 text-sm sm:gap-x-4'>
+        <!-- <a
+          class='inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
+          href='/terms'>Terms</a
+        >
+
+        <a
+          class='inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
+          href='/privacy'>Privacy</a
+        > -->
+        <a
+          class='py-[3px] text-xs text-muted-foreground'
+          href='https://icp.gov.moe/?keyword=20240147'
+          target='_blank'>萌ICP备20240147号</a
+        >
+        <p class=''>© <samp>{year}</samp> CWorld. All rights reserved.</p>
+      </div>
+
+      <div class='flex items-center justify-between'>
+        <!-- Social Brands -->
+        <!-- https://icones.js.org/collection/mingcute -->
+        <div class='flex items-center gap-x-4'>
+          <!-- Coolapk -->
+          <a
+            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
+            href='https://t.me/cworld0_cn'
+            aria-label='telegram'
+          >
+            <svg class='size-6'>
+              <use href='/icons/footer.svg#coolapk-line'></use>
+            </svg>
+          </a>
+          <!-- Telegram -->
+          <a
+            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
+            href='https://t.me/cworld0_cn'
+            aria-label='telegram'
+          >
+            <svg class='size-6'>
+              <use href='/icons/footer.svg#mingcute-telegram-line'></use>
+            </svg>
+          </a>
+          <!-- Github -->
+          <a
+            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
+            href='https://github.com/cworld1'
+            aria-label='github'
+          >
+            <svg class='size-6'>
+              <use href='/icons/footer.svg#mingcute-github-line'></use>
+            </svg>
+          </a>
+          <!-- Rss -->
+          <a
+            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
+            href='/rss.xml'
+            aria-label='rss'
+          >
+            <svg class='size-6'>
+              <use href='/icons/footer.svg#mingcute-rss-2-line'></use>
+            </svg>
+          </a>
+          <!-- End Social Brands -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
