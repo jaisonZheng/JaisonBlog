@@ -1,4 +1,4 @@
-import type { SiteConfig, MenuLinks } from '@/types'
+import type { SiteConfig, MenuLinks, SocialLinks } from '@/types'
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
 
 export const siteConfig: SiteConfig = {
@@ -22,7 +22,18 @@ export const siteConfig: SiteConfig = {
     }
   },
   // Customize
-  pageSize: 8
+  pageSize: 8,
+  registration: {
+    url: 'https://icp.gov.moe/?keyword=20240147',
+    text: '萌ICP备20240147号'
+  },
+  walineServerUrl: 'https://waline.cworld.top',
+  applyFriendTip: {
+    name: 'CWorld',
+    slogan: '求知若愚，虚怀若谷',
+    url: 'https://cworld.top/',
+    avatar: 'https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200'
+  }
 }
 
 export const menuLinks: MenuLinks = [
@@ -41,6 +52,21 @@ export const menuLinks: MenuLinks = [
   {
     link: '/about',
     label: 'About'
+  }
+]
+
+export const socialLinks: SocialLinks = [
+  {
+    name: 'coolapk',
+    url: 'https://t.me/cworld0_cn'
+  },
+  {
+    name: 'telegram',
+    url: 'https://t.me/cworld0_cn'
+  },
+  {
+    name: 'github',
+    url: 'https://github.com/cworld1'
   }
 ]
 

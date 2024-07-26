@@ -9,6 +9,17 @@ export type SiteConfig = {
     options: Intl.DateTimeFormatOptions
   }
   pageSize: number
+  registration?: {
+    url: string
+    text: string
+  }
+  walineServerUrl: string
+  applyFriendTip: {
+    name: string
+    slogan: string
+    url: string
+    avatar: string
+  }
 }
 
 export type MenuLinks = Array<{ link: string; label: string }>
@@ -25,3 +36,16 @@ export type SiteMeta = {
   ogImage?: string | undefined
   articleDate?: string | undefined
 }
+
+export const SocialMediaIconId: Record<string, string> = {
+  coolapk: 'coolapk-line',
+  telegram: 'mingcute-telegram-line',
+  github: 'mingcute-github-line'
+}
+
+export type SocialLink = {
+  name: 'coolapk' | 'telegram' | 'github'
+  url: string
+}
+
+export type SocialLinks = Array<SocialLink>

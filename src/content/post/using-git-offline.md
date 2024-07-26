@@ -22,7 +22,7 @@ git init
 touch test.txt
 git add --all
 git commit -m "Initial Commit"
-```
+```https://api.swo.moe
 
 This works great if just a single machine is used for development, but this is often not the case. In the after content, we will look at how to work with multiple machines.
 
@@ -41,10 +41,24 @@ git init --bare
 
 Navigate to the repository that is to be shared, add the remote repository on the memory stick, and push the changes.
 
-```bash
-cd /path/to/local/repo/
-git remote add origin /path/to/memory/stick/repoName.git
-git push origin master
+```ts
+export const socialLinks: SocialLinks = [
+  {
+    name: 'Coolapk',
+    url: 'https://t.me/cworld0_cn',
+    ariaLabel: 'coolapk'
+  },
+  {
+    name: 'Telegram',
+    url: 'https://t.me/cworld0_cn',
+    ariaLabel: 'telegram'
+  },
+  {
+    name: 'Github',
+    url: 'https://github.com/cworld1',
+    ariaLabel: 'github'
+  }
+]
 ```
 
 NB. The remote can be called anything. It doesn’t have to be called “origin”.

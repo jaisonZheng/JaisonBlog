@@ -11,6 +11,8 @@ import icon from 'astro-icon'
 import playformCompress from '@playform/compress'
 // Markdown
 import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
 
@@ -49,8 +51,9 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime],
     rehypePlugins: [
+      rehypeKatex,
       [
         rehypeExternalLinks,
         {
