@@ -2,8 +2,6 @@ import { defineConfig } from 'astro/config'
 // Adapter
 import vercel from '@astrojs/vercel/serverless'
 // Integrations
-import expressiveCode from 'astro-expressive-code'
-import { expressiveCodeOptions } from './src/site.config.ts'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
@@ -34,12 +32,15 @@ export default defineConfig({
     // isr: true // cache
   }),
   integrations: [
-    expressiveCode(expressiveCodeOptions),
-    tailwind({ applyBaseStyles: false }),
+    tailwind({
+      applyBaseStyles: false
+    }),
     sitemap(),
     mdx(),
     icon(),
-    playformCompress({ SVG: false })
+    playformCompress({
+      SVG: false
+    })
   ],
   // root: './my-project-directory',
 
@@ -53,7 +54,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime],
     rehypePlugins: [
-      rehypeKatex,
+      [rehypeKatex, {}],
       [
         rehypeExternalLinks,
         {
@@ -65,6 +66,12 @@ export default defineConfig({
     remarkRehype: {
       footnoteLabelProperties: {
         className: ['']
+      }
+    },
+    shikiConfig: {
+      themes: {
+        dark: 'github-dark',
+        light: 'github-light'
       }
     }
   }
