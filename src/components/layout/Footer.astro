@@ -1,4 +1,6 @@
 ---
+import { socialLinks, siteConfig } from '@/site-config'
+import { SocialMediaIconId } from '@/types'
 const year = new Date().getFullYear()
 ---
 
@@ -17,48 +19,37 @@ const year = new Date().getFullYear()
           class='inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
           href='/privacy'>Privacy</a
         > -->
-        <a
-          class='py-[3px] text-xs text-muted-foreground'
-          href='https://icp.gov.moe/?keyword=20240147'
-          target='_blank'>萌ICP备20240147号</a
-        >
-        <p class=''>© <samp>{year}</samp> CWorld. All rights reserved.</p>
+        {
+          siteConfig.registration && (
+            <a
+              class='py-[3px] text-xs text-muted-foreground'
+              href={siteConfig.registration.url}
+              target='_blank'
+            >
+              {siteConfig.registration.text}
+            </a>
+          )
+        }
+        <p class=''>© <samp>{year}</samp> {siteConfig.author}. All rights reserved.</p>
       </div>
 
       <div class='flex items-center justify-between'>
         <!-- Social Brands -->
         <!-- https://icones.js.org/collection/mingcute -->
         <div class='flex items-center gap-x-4'>
-          <!-- Coolapk -->
-          <a
-            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
-            href='https://t.me/cworld0_cn'
-            aria-label='telegram'
-          >
-            <svg class='size-6'>
-              <use href='/icons/footer.svg#coolapk-line'></use>
-            </svg>
-          </a>
-          <!-- Telegram -->
-          <a
-            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
-            href='https://t.me/cworld0_cn'
-            aria-label='telegram'
-          >
-            <svg class='size-6'>
-              <use href='/icons/footer.svg#mingcute-telegram-line'></use>
-            </svg>
-          </a>
-          <!-- Github -->
-          <a
-            class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
-            href='https://github.com/cworld1'
-            aria-label='github'
-          >
-            <svg class='size-6'>
-              <use href='/icons/footer.svg#mingcute-github-line'></use>
-            </svg>
-          </a>
+          {
+            socialLinks.map((platform) => (
+              <a
+                class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
+                href={platform.url}
+                aria-label={platform.name}
+              >
+                <svg class='size-6'>
+                  <use href={`/icons/footer.svg#${SocialMediaIconId[platform.name]}`} />
+                </svg>
+              </a>
+            ))
+          }
           <!-- Rss -->
           <a
             class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
