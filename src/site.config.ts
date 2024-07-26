@@ -2,9 +2,11 @@ import type { SiteConfig, MenuLinks, SocialLinks } from '@/types'
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-  author: 'CWorld',
+  author: 'CWorld / Arthals',
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-  title: 'CWorld Site',
+  title: 'Astro-theme-pure',
+  // Meta property used to generate your sitemap and canonical URLs in your final build
+  site: 'https://cworld.top',
   // Meta property used as the default description meta property
   description: 'Stay hungry, stay foolish',
   // HTML lang property, found in src/layouts/Base.astro L:18
@@ -35,6 +37,22 @@ export const siteConfig: SiteConfig = {
   }
 }
 
+// will be used in Footer.astro
+export const socialLinks: SocialLinks = [
+  {
+    name: 'coolapk',
+    url: 'https://t.me/cworld0_cn'
+  },
+  {
+    name: 'telegram',
+    url: 'https://t.me/cworld0_cn'
+  },
+  {
+    name: 'github',
+    url: 'https://github.com/cworld1'
+  }
+]
+
 export const menuLinks: MenuLinks = [
   {
     link: '/blog',
@@ -51,20 +69,5 @@ export const menuLinks: MenuLinks = [
   {
     link: '/about',
     label: 'About'
-  }
-]
-
-export const socialLinks: SocialLinks = [
-  {
-    name: 'coolapk',
-    url: 'https://t.me/cworld0_cn'
-  },
-  {
-    name: 'telegram',
-    url: 'https://t.me/cworld0_cn'
-  },
-  {
-    name: 'github',
-    url: 'https://github.com/cworld1'
   }
 ]

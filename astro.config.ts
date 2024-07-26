@@ -13,11 +13,12 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
+import { siteConfig } from './src/site.config.ts'
 
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://cworld.top',
+  site: siteConfig.site,
   // base: '/docs',
   trailingSlash: 'never',
   output: 'server',
