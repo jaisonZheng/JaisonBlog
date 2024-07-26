@@ -1,6 +1,7 @@
 export type SiteConfig = {
   author: string
   title: string
+  site: string
   description: string
   lang: string
   ogLocale: string
@@ -40,11 +41,24 @@ export type SiteMeta = {
 export const SocialMediaIconId: Record<string, string> = {
   coolapk: 'coolapk-line',
   telegram: 'mingcute-telegram-line',
-  github: 'mingcute-github-line'
+  github: 'mingcute-github-line',
+  bilibili: 'ri-bilibili-line',
+  twitter: 'mingcute-twitter-line',
+  zhihu: 'ri-zhihu-line',
+  steam: 'ri-steam-line',
+  netease_music: 'ri-netease-cloud-music-line',
 }
 
 export type SocialLink = {
-  name: 'coolapk' | 'telegram' | 'github'
+  name:
+    | 'coolapk'
+    | 'telegram'
+    | 'github'
+    | 'bilibili'
+    | 'twitter'
+    | 'zhihu'
+    | 'steam'
+    | 'netease_music'
   url: string
 }
 
