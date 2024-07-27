@@ -2,18 +2,19 @@ import { defineConfig } from 'astro/config'
 // Adapter
 import vercel from '@astrojs/vercel/serverless'
 // Integrations
-import tailwind from '@astrojs/tailwind'
-import sitemap from '@astrojs/sitemap'
 import mdx from '@astrojs/mdx'
-import icon from 'astro-icon'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
 import playformCompress from '@playform/compress'
+import icon from 'astro-icon'
 // Markdown
-import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
+import { remarkAlert } from 'remark-github-blockquote-alert'
+import remarkUnwrapImages from 'remark-unwrap-images'
 import { siteConfig } from './src/site.config.ts'
+import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,7 +54,7 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime],
+    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime,remarkAlert],
     rehypePlugins: [
       [rehypeKatex, {}],
       [

@@ -40,16 +40,8 @@ export const siteConfig: SiteConfig = {
 // will be used in Footer.astro
 export const socialLinks: SocialLinks = [
   {
-    name: 'coolapk',
-    url: 'https://t.me/cworld0_cn'
-  },
-  {
-    name: 'telegram',
-    url: 'https://t.me/cworld0_cn'
-  },
-  {
     name: 'github',
-    url: 'https://github.com/cworld1'
+    url: 'https://github.com/cworld1/theme-astro-pure'
   }
 ]
 
