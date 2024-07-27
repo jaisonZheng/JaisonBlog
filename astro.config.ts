@@ -1,6 +1,9 @@
 import { defineConfig } from 'astro/config'
 // Adapter
+// if you want deploy on vercel
 import vercel from '@astrojs/vercel/serverless'
+// if you want deploy locally
+// import node from '@astrojs/node'
 // Integrations
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -23,16 +26,16 @@ export default defineConfig({
   // base: '/docs',
   trailingSlash: 'never',
   output: 'server',
+  // if you want deploy on vercel
   adapter: vercel({
     webAnalytics: {
       enabled: true
     }
-    // imagesConfig: {
-    //   sizes: [320, 640, 1280]
-    // }
-    // imageService: true
-    // isr: true // cache
   }),
+  // if you want deploy locally
+  // adapter: node({
+  //   mode: 'standalone'
+  // }),
   integrations: [
     tailwind({
       applyBaseStyles: false
@@ -54,7 +57,7 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime,remarkAlert],
+    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime, remarkAlert],
     rehypePlugins: [
       [rehypeKatex, {}],
       [
