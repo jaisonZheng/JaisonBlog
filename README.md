@@ -17,7 +17,7 @@ For more information, please visit the [cworld site](https://cworld.top/blog/the
 Environment requirements:
 
 - [Nodejs](https://nodejs.org/): 18.0.0+
-- [Bun](https://bunjs.dev/): 1.0.0+
+- [Bun](https://bun.sh/): 1.0.0+
 
 Clone the repository:
 

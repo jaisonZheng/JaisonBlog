@@ -17,7 +17,7 @@
 环境要求：
 
 - [Nodejs](https://nodejs.org/): 18.0.0+
-- [Bun](https://bunjs.dev/): 1.0.0+
+- [Bun](https://bun.sh/): 1.0.0+
 
 克隆存储库：
 
