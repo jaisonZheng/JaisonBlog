@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 // Adapter
 // if you want deploy on vercel
 import vercel from '@astrojs/vercel/serverless'
+// ---
 // if you want deploy locally
 // import node from '@astrojs/node'
 // Integrations
@@ -32,6 +33,7 @@ export default defineConfig({
       enabled: true
     }
   }),
+  // ---
   // if you want deploy locally
   // adapter: node({
   //   mode: 'standalone'

@@ -5,7 +5,6 @@ import Sponsors from '@/components/projects/Sponsors.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 import PageLayout from '@/layouts/CommonPage.astro'
 import { Image } from 'astro:assets'
-import { siteConfig } from '@/site-config'
 import wechat from '@/assets/wechat-qrcode.jpg'
 import alipay from '@/assets/alipay-qrcode.jpg'
 
@@ -218,7 +217,7 @@ const headings = [
   import { pageviewCount } from 'https://unpkg.com/@waline/client@v3/dist/pageview.js'
 
   pageviewCount({
-    serverURL: siteConfig.walineServerUrl,
+    serverURL: document.querySelector('meta[name="waline-server-url"]').getAttribute('content'),
     path: window.location.pathname
   })
 </script>

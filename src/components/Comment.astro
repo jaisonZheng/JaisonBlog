@@ -11,7 +11,6 @@ const { class: className } = Astro.props
 </comment-component>
 
 <script>
-  import { siteConfig } from '@/site-config'
   import { init } from '@waline/client'
   import '@waline/client/style'
 
@@ -23,13 +22,14 @@ const { class: className } = Astro.props
     connectedCallback() {
       init({
         el: '#waline',
-        serverURL: siteConfig.walineServerUrl,
+        serverURL: document
+          .querySelector('meta[name="waline-server-url"]')!
+          .getAttribute('content')!,
         emoji: [
           'https://cdn.cbd.int/@waline/emojis@1.2.0/bmoji',
           'https://cdn.cbd.int/@waline/emojis@1.2.0/weibo'
         ],
         reaction: ['/images/comment-like.png'],
-        // search: false,
         pageview: true,
         comment: true,
         locale: {

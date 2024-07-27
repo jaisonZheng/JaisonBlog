@@ -12,6 +12,7 @@ const titleSeparator = '•'
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', Astro.url).href
+const { walineServerUrl } = siteConfig
 ---
 
 <meta charset='utf-8' />
@@ -88,6 +89,9 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 
 <meta content={Astro.generator} name='generator' />
 
+{/* Waline */}
+<meta content={walineServerUrl} name='waline-server-url' />
+
 {/* Styles */}
 <link rel='stylesheet' href='/styles/global.css' />
 
@@ -110,31 +114,35 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
   document.addEventListener('DOMContentLoaded', animate)
   document.addEventListener('astro:after-swap', animate)
 
-  // line number
-  let codeBlocks = Array.from(document.querySelectorAll('pre'))
+  function addCodePreStyle() {
+    // line number
+    let codeBlocks = Array.from(document.querySelectorAll('pre'))
 
-  if (codeBlocks) {
-    let styleSheet = document.createElement('style')
-    document.head.appendChild(styleSheet)
+    if (codeBlocks.length > 0) {
+      let styleSheet = document.createElement('style')
+      document.head.appendChild(styleSheet)
 
-    let block = codeBlocks[0]
-    let style = block.getAttribute('style')
-    if (style) {
-      let backgroundColorMatch = style.match(/background-color:\s*([^;]+)/)
-      let shikiDarkBgMatch = style.match(/--shiki-dark-bg:\s*([^;]+)/)
-      if (backgroundColorMatch && shikiDarkBgMatch) {
-        let backgroundColor = backgroundColorMatch[1]
-        let shikiDarkBg = shikiDarkBgMatch[1]
+      let block = codeBlocks[0]
+      let style = block.getAttribute('style')
+      if (style) {
+        console.log(style)
+        let backgroundColorMatch = style.match(/background-color:\s*([^;]+)/)
+        let shikiDarkBgMatch = style.match(/--shiki-dark-bg:\s*([^;]+)/)
+        if (backgroundColorMatch && shikiDarkBgMatch) {
+          let backgroundColor = backgroundColorMatch[1]
+          let shikiDarkBg = shikiDarkBgMatch[1]
 
-        styleSheet.innerHTML = `
+          styleSheet.innerHTML = `
           pre .line::before {
             background-color: ${backgroundColor};
             --shiki-dark-bg: ${shikiDarkBg};
           }
         `
+        }
       }
     }
   }
+  document.addEventListener('DOMContentLoaded', addCodePreStyle)
 </script>
 
 {/* Vercel speed insights */}
