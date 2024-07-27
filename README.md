@@ -8,7 +8,7 @@ A simple, clean but powerful blog theme build by astro.
 
 ## Introduction
 
-For more information, please visit the [cworld site](https://cworld.top/blog/theme-resume).
+For more information, please visit the [cworld site](https://cworld.top/blog/theme-resume) and [astro-theme-pure / customize](https://theme-astro-pure.vercel.app/blog/customize)
 
 ## Local development
 
