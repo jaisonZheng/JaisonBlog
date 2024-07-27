@@ -6,61 +6,61 @@
 [![GitHub stars](https://img.shields.io/github/stars/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/stargazers)
 [![GitHub license](https://img.shields.io/github/license/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/blob/main/LICENSE)
 
-A simple, clean but powerful blog theme build by astro.
+一个简单、干净但功能强大的博客主题，由 Astro 构建。
 
-## Introduction / Deployment
+## 简介 / 部署
 
-For more information, please visit the [cworld site](https://cworld.top/blog/theme-resume) and [deployment instructions](https://theme-astro-pure.vercel.app/blog/customize)
+欲了解更多信息，请访问 [cworld 网站](https://cworld.top/blog/theme-resume) 和 [部署说明](https://theme-astro-pure.vercel.app/blog/customize-zh)
 
-## Local development
+## 本地开发
 
-Environment requirements:
+环境要求：
 
 - [Nodejs](https://nodejs.org/): 18.0.0+
 - [Bun](https://bunjs.dev/): 1.0.0+
 
-Clone the repository:
+克隆存储库：
 
 ```shell
 git clone https://github.com/cworld1/theme-astro-pure.git
 ```
 
-Install dependencies:
+安装依赖：
 
 ```shell
 cd theme-astro-pure
 bun install
 ```
 
-Start the development server:
+启动开发服务器：
 
 ```shell
 bun dev
-# Background task is bad for windows user. Use below instead:
+# 后台任务对 Windows 用户不友好。请改用以下命令：
 # bun start
 ```
 
-Or build (you may need to use node.js SSR firstly):
+或者构建（您可能需要首先使用 node.js SSR）：
 
 ```shell
 bun run build
 ```
 
-Preview:
+预览：
 
 ```shell
 bun preview
 ```
 
-## Contributions
+## 贡献
 
-To spend more time coding and less time fiddling with whitespace, this project uses code conventions and styles to encourage consistency. Code with a consistent style is easier (and less error-prone!) to review, maintain, and understand.
+为了花更多时间编写代码，减少在空白上纠结的时间，本项目使用代码约定和样式来鼓励一致性。风格一致的代码更容易（且更不容易出错）进行审查、维护和理解。
 
-## Thanks
+## 感谢
 
 - [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus)
 - [Astro Resume](https://github.com/srleom/astro-theme-resume)
 
-## License
+## 许可证
 
-This project is licensed under the GPL 3.0 License.
+本项目基于 GPL 3.0 许可证。

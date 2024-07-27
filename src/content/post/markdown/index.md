@@ -1,67 +1,72 @@
 ---
-title: Markdown 语法支持
-publishDate: 2019-07-10 13:18:58
-description: 'Markdown 是一种轻量级的「标记语言」。'
+title: Markdown Syntax Support
+publishDate: 2024-07-26 08:00:00
+description: 'Markdown is a lightweight "markup language."'
 tags:
   - Markdown
 coverImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
+language: 'English'
 ---
 
-## 基本语法
+## Basic Syntax
 
-Markdown 是一种轻量级且易于使用的语法，用于为您的写作设计风格。
+Markdown is a lightweight and easy-to-use syntax for styling your writing.
 
-### 标题
+### Headers
 
-文章内容较多时，可以用标题分段：
-
-```markdown
-# 标题 1
-
-## 标题 2
-
-## 大标题
-
-### 小标题
-```
-
-标题预览会打乱文章的结构，所以在此不展示。
-
-### 粗斜体
+When the content of the article is extensive, you can use headers to segment:
 
 ```markdown
-_斜体文本_ _斜体文本_
-**粗体文本** **粗体文本**
-**_粗斜体文本_** **_粗斜体文本_**
+# Header 1
+
+## Header 2
+
+## Large Header
+
+### Small Header
 ```
 
-预览：
+Header previews would disrupt the structure of the article, so they are not displayed here.
 
-_斜体文本_ _斜体文本_
-**粗体文本** **粗体文本**
-**_粗斜体文本_** **_粗斜体文本_**
-
-### 链接
+### Bold and Italics
 
 ```markdown
-文字链接 [链接名称](http://链接网址)
+_Italic text_
+
+**Bold text**
+
+**_Bold Italic text_**
 ```
 
-预览：
+Preview:
 
-文字链接 [链接名称](http://链接网址)
+_Italic text_
 
-### 行内代码
+**Bold text**
+
+**_Bold Italic text_**
+
+### Links
 
 ```markdown
-这是一条 `单行代码`
+Text link [Link Name](http://link-url)
 ```
 
-预览：
+Preview:
 
-这是一条 `行内代码`
+Text link [Link Name](http://link-url)
 
-### 代码块
+### Inline Code
+
+```markdown
+This is an `inline code`
+```
+
+Preview:
+
+This is an `inline code`
+
+### Code Blocks
 
 ````markdown
 ```js
@@ -73,7 +78,7 @@ function fibonacci(n) {
 ```
 ````
 
-预览：
+Preview:
 
 ```js
 // calculate fibonacci
@@ -83,19 +88,19 @@ function fibonacci(n) {
 }
 ```
 
-当前使用 shiki 作为代码高亮插件，支持的语言请参考 [shiki / languages](https://shiki.matsu.io/languages.html)。
+Currently using shiki as the code highlighting plugin. For supported languages, refer to [shiki / languages](https://shiki.matsu.io/languages.html).
 
-### 行内公式
+### Inline Formula
 
 ```markdown
-这是一条行内公式 $e^{i\pi} + 1 = 0$
+This is an inline formula $e^{i\pi} + 1 = 0$
 ```
 
-预览：
+Preview:
 
-这是一条行内公式 $e^{i\pi} + 1 = 0$
+This is an inline formula $e^{i\pi} + 1 = 0$
 
-### 公式块
+### Formula Blocks
 
 ```markdown
 $$
@@ -103,37 +108,37 @@ $$
 $$
 ```
 
-预览：
+Preview:
 
 $$
 \hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
 $$
 
-当前使用 KaTeX 作为数学公式插件，支持的语法请参考 [KaTeX Supported Functions](https://katex.org/docs/supported.html)。
+Currently using KaTeX as the math formula plugin. For supported syntax, refer to [KaTeX Supported Functions](https://katex.org/docs/supported.html).
 
-#### 图片
+#### Images
 
 ```markdown
 ![CWorld](https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
 ```
 
-预览：
+Preview:
 
 ![CWorld](https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
 
-#### 删除线
+#### Strikethrough
 
 ```markdown
-~~删除线~~
+~~Strikethrough~~
 ```
 
-预览：
+Preview:
 
-~~删除线~~
+~~Strikethrough~~
 
-### 列表
+### Lists
 
-普通无序列表
+Regular unordered list
 
 ```markdown
 - 1
@@ -141,13 +146,13 @@ $$
 - 3
 ```
 
-预览：
+Preview:
 
 - 1
 - 2
 - 3
 
-普通有序列表
+Regular ordered list
 
 ```markdown
 1. GPT-4
@@ -155,198 +160,198 @@ $$
 3. LLaMa
 ```
 
-预览：
+Preview:
 
 1. GPT-4
 2. Claude Opus
 3. LLaMa
 
-列表里可以继续嵌套语法
+You can continue to nest syntax within lists.
 
-### 引用
+### Blockquotes
 
 ```markdown
-> 枪响，雷鸣，剑起。繁花血景。
+> Gunshot, thunder, sword rise. A scene of flowers and blood.
 ```
 
-预览：
+Preview:
 
-> 枪响，雷鸣，剑起。繁花血景。
+> Gunshot, thunder, sword rise. A scene of flowers and blood.
 
-引用里也可以继续嵌套语法。
+You can continue to nest syntax within blockquotes.
 
-### 换行
+### Line Breaks
 
-markdown 分段落是需要空一行的。
+Markdown needs a blank line to separate paragraphs.
 
 ```Markdown
-如果不空行
-就会在一段
+If you don't leave a blank line
+it will be in one paragraph
 
-第一段
+First paragraph
 
-第二段
+Second paragraph
 ```
 
-预览：
+Preview:
 
-如果不空行
-就会在一段
+If you don't leave a blank line
+it will be in one paragraph
 
-第一段
+First paragraph
 
-第二段
+Second paragraph
 
-### 分隔符
+### Separators
 
-如果你有写分割线的习惯，可以新起一行输入三个减号`---` 或者星号 `***`。当前后都有段落时，请空出一行：
+If you have the habit of writing separators, you can start a new line and enter three dashes `---` or asterisks `***`. Leave a blank line before and after when there are paragraphs:
 
 ```markdown
 ---
 ```
 
-预览：
+Preview:
 
 ---
 
-## 高级技巧
+## Advanced Techniques
 
-### 行内 HTML 元素
+### Inline HTML Elements
 
-目前只支持部分段内 HTML 元素效果，包括 `<kdb> <b> <i> <em> <sup> <sub> <br>` ，如
+Currently, only some inline HTML elements are supported, including `<kdb> <b> <i> <em> <sup> <sub> <br>`, such as
 
-#### 键位显示
-
-```markdown
-使用 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> 重启电脑
-```
-
-预览：
-
-使用 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> 重启电脑
-
-#### 粗斜体
+#### Key Display
 
 ```markdown
-<b> Markdown 在此处同样适用，如 _加粗_ </b>
+Use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> to reboot the computer
 ```
 
-预览：
+Preview:
 
-<b> Markdown 在此处同样适用，如 _加粗_ </b>
+Use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> to reboot the computer
 
-### 其他 HTML 写法
-
-#### 折叠块
+#### Bold Italics
 
 ```markdown
-<details><summary>点击展开</summary>它被隐藏了</details>
+<b> Markdown also applies here, such as _bold_ </b>
 ```
 
-预览：
+Preview:
 
-<details><summary>点击展开</summary>它被隐藏了</details>
+<b> Markdown also applies here, such as _bold_ </b>
 
-### 表格
+### Other HTML Writing
+
+#### Foldable Blocks
 
 ```markdown
-| 表头1 | 表头2 |
-| ----- | ----- |
-| 内容1 | 内容2 |
+<details><summary>Click to expand</summary>It is hidden</details>
 ```
 
-预览：
+Preview:
 
-| 表头1 | 表头2 |
-| ----- | ----- |
-| 内容1 | 内容2 |
+<details><summary>Click to expand</summary>It is hidden</details>
 
-### 注释
+### Tables
 
 ```markdown
-在引用的地方使用 [^注释] 来添加注释。
-
-然后在文档的结尾，添加注释的内容（会默认于文章结尾渲染之）。
-
-[^注释]: 这里是注释的内容
+| Header1 | Header2 |
+| ------- | ------- |
+| Content1 | Content2 |
 ```
 
-预览：
+Preview:
 
-在引用的地方使用 [^注释] 来添加注释。
+| Header1 | Header2 |
+| ------- | ------- |
+| Content1 | Content2 |
 
-然后在文档的结尾，添加注释的内容（会默认于文章结尾渲染之）。
-
-[^注释]: 这里是注释的内容
-
-### To-Do 列表
+### Footnotes
 
 ```markdown
-- [ ] 未完成的任务
-- [x] 已完成的任务
+Use [^footnote] to add a footnote at the point of reference.
+
+Then, at the end of the document, add the content of the footnote (it will be rendered at the end of the article by default).
+
+[^footnote]: Here is the content of the footnote
 ```
 
-预览：
+Preview:
 
-- [ ] 未完成的任务
-- [x] 已完成的任务
+Use [^footnote] to add a footnote at the point of reference.
 
-### 特别引用块
+Then, at the end of the document, add the content of the footnote (it will be rendered at the end of the article by default).
+
+[^footnote]: Here is the content of the footnote
+
+### To-Do Lists
+
+```markdown
+- [ ] Incomplete task
+- [x] Completed task
+```
+
+Preview:
+
+- [ ] Incomplete task
+- [x] Completed task
+
+### Special Blockquotes
 
 ```markdown
 > [!NOTE]
-> 在浏览内容时，用户也应该知道的有用信息。
+> Useful information that users should also know when browsing the content.
 
 > [!TIP]
-> 可以更好或更容易地完成事情的有用建议。
+> Useful tips for doing things better or easier.
 
 > [!IMPORTANT]
-> 用户需要知道的关键信息。
+> Key information that users need to know.
 
 > [!WARNING]
-> 需要用户立即关注以避免问题的紧急信息。
+> Urgent information that requires users' immediate attention to avoid problems.
 
 > [!CAUTION]
-> 就某些行为的风险或负面结果提供建议。
+> Provides advice on the risks or negative consequences of certain actions.
 ```
 
-预览：
+Preview:
 
 > [!NOTE]
-> 在浏览内容时，用户也应该知道的有用信息。
+> Useful information that users should also know when browsing the content.
 
 > [!TIP]
-> 可以更好或更容易地完成事情的有用建议。
+> Useful tips for doing things better or easier.
 
 > [!IMPORTANT]
-> 用户需要知道的关键信息。
+> Key information that users need to know.
 
 > [!WARNING]
-> 需要用户立即关注以避免问题的紧急信息。
+> Urgent information that requires users' immediate attention to avoid problems.
 
 > [!CAUTION]
-> 就某些行为的风险或负面结果提供建议。
+> Provides advice on the risks or negative consequences of certain actions.
 
-### 符号转义
+### Symbol Escaping
 
-如果你的描述中需要用到 markdown 的符号，比如 \_ # \* 等，但又不想它被转义，这时候可以在这些符号前加反斜杠，如 `\_` `\#` `\*` 进行避免。
+If you need to use markdown symbols like \_ # \* in your description but don't want them to be escaped, you can add a backslash before these symbols, such as `\_` `\#` `\*` to avoid it.
 
 ```markdown
-\_不想这里的文本变斜体\_
+\_Don't want the text here to be italic\_
 
-\*\*不想这里的文本被加粗\*\*
+\*\*Don't want the text here to be bold\*\*
 ```
 
-预览：
+Preview:
 
-\_不想这里的文本变斜体\_
+\_Don't want the text here to be italic\_
 
-\*\*不想这里的文本被加粗\*\*
+\*\*Don't want the text here to be bold\*\*
 
 ---
 
-## 内嵌 Astro 组件
+## Embedding Astro Components
 
-源代码位于 `src/components` 目录下，一般不用于写作，而是用于页面的客制化。
+The source code is located in the `src/components` directory, generally not for writing, but for page customization.
 
-你可以仿照现有组件的写法，自行添加新的组件。
+You can add new components by following the writing style of existing components.
