@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
   title: 'Astro-theme-pure',
   // Meta property used to generate your sitemap and canonical URLs in your final build
-  site: 'https://cworld.top',
+  site: 'https://theme-astro-pure.vercel.app/',
   // Meta property used as the default description meta property
   description: 'Stay hungry, stay foolish',
   // HTML lang property, found in src/layouts/Base.astro L:18
@@ -25,8 +25,8 @@ export const siteConfig: SiteConfig = {
   // Customize
   pageSize: 8,
   registration: {
-    url: 'https://icp.gov.moe/?keyword=20240147',
-    text: '萌ICP备20240147号'
+    url: 'https://icp.gov.moe/?keyword=APTX4869',
+    text: '萌ICP备APTX4869号'
   },
   walineServerUrl: 'https://waline.cworld.top',
   applyFriendTip: {
