@@ -27,6 +27,38 @@ coverImage: { src: './thumbnail.jpg', color: '#64574D' }
 
 一些特殊配置项的说明如下：
 
+#### 部署模式
+
+如果你采用 Vercel 部署，你无需修改。
+
+如果你采用 Node.js 本地部署，你需要依照 `src/site.config.ts` 中的注释，修改
+
+```ts
+import vercel from '@astrojs/vercel/serverless'
+...
+export default defineConfig({
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true
+    }
+  }),
+  ...
+})
+```
+
+为
+
+```ts
+import node from '@astrojs/node'
+...
+export default defineConfig({
+  adapter: node({
+    mode: 'standalone'
+  }),
+  ...
+})
+```
+
 #### Waline 评论系统
 
 > [!NOTE]
