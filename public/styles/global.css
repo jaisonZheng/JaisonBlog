@@ -28,3 +28,59 @@ html.dark {
       transform 0.1s ease;
   }
 }
+
+html.dark {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+  code .line::before {
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+.astro-code {
+  /* box-shadow:
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 2px -1px; */
+  @apply relative flex flex-col gap-y-2 rounded-xl border px-3 py-2 sm:px-4 sm:py-3;
+}
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+  overflow: scroll;
+}
+
+code .line {
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 2rem; /* 确保有足够的宽度 */
+  padding-right: 0.5rem;
+  display: inline-flex;
+  justify-content: flex-end; /* 使用 flex 布局来对齐文本 */
+  color: rgba(115, 138, 148, 0.4);
+  background: rgba(255, 255, 255, 0.8); /* 添加背景颜色 */
+  position: fixed;
+  left: 0.5rem;
+}
+
+.markdown-alert {
+  margin-top: 1.25rem;
+}
+
+.markdown-alert-title {
+  margin-top: 0.5rem;
+}
+
+#wl-edit {
+  padding: 0.5rem;
+  width: calc(100% - 2em);
+}

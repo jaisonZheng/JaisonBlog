@@ -28,11 +28,11 @@ export const siteConfig: SiteConfig = {
     url: 'https://icp.gov.moe/?keyword=APTX4869',
     text: '萌ICP备APTX4869号'
   },
-  walineServerUrl: 'https://waline.cworld.top',
+  walineServerUrl: 'https://astro-theme-pure-waline.arthals.ink',
   applyFriendTip: {
-    name: 'CWorld',
+    name: 'Astro Theme Pure',
     slogan: '求知若愚，虚怀若谷',
-    url: 'https://cworld.top/',
+    url: 'https://astro-theme-pure.vercel.app/',
     avatar: 'https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200'
   }
 }
