@@ -28,23 +28,3 @@ html.dark {
       transform 0.1s ease;
   }
 }
-
-html.dark {
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
-  code .line::before {
-    background-color: var(--shiki-dark-bg) !important;
-  }
-}
-
-.astro-code {
-  /* box-shadow:
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.1) 0px 1px 2px -1px; */
-  @apply relative flex flex-col gap-y-2 rounded-xl border px-3 py-2 sm:px-4 sm:py-3;
-}
