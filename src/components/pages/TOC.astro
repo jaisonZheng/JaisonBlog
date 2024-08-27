@@ -103,8 +103,8 @@ const toc = generateToc(headings)
         link.element.addEventListener('click', (e) => {
           e.preventDefault()
           // Push the history to add the hash at the end of the URL
-          history.pushState(null, null, this.getAttribute("href"))
           const directHeading = this.headings.find((heading) => heading.id === link.slug)
+          history.pushState(null, directHeading ?? "", this.getAttribute("href"));
           directHeading?.scrollIntoView({ behavior: 'smooth' })
         })
       })
