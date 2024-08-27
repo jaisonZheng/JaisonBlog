@@ -104,7 +104,7 @@ const toc = generateToc(headings)
           e.preventDefault()
           // Push the history to add the hash at the end of the URL
           const directHeading = this.headings.find((heading) => heading.id === link.slug)
-          history.pushState(null, directHeading ?? "", this.getAttribute("href"));
+          history.pushState(null, directHeading.text ?? "", this.getAttribute("href"));
           directHeading?.scrollIntoView({ behavior: 'smooth' })
         })
       })
