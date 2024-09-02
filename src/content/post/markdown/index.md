@@ -184,7 +184,7 @@ You can continue to nest syntax within blockquotes.
 
 Markdown needs a blank line to separate paragraphs.
 
-```Markdown
+```markdown
 If you don't leave a blank line
 it will be in one paragraph
 
@@ -255,15 +255,15 @@ Preview:
 ### Tables
 
 ```markdown
-| Header1 | Header2 |
-| ------- | ------- |
+| Header1  | Header2  |
+| -------- | -------- |
 | Content1 | Content2 |
 ```
 
 Preview:
 
-| Header1 | Header2 |
-| ------- | ------- |
+| Header1  | Header2  |
+| -------- | -------- |
 | Content1 | Content2 |
 
 ### Footnotes
