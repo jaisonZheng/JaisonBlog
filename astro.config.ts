@@ -18,7 +18,7 @@ import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { siteConfig } from './src/site.config.ts'
-import { remarkReadingTime } from './src/utils/remarkReadingTime.ts'
+import { remarkGithubCards, remarkReadingTime, remarkArxivCards } from './src/utils/remarkParser.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,7 +59,14 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkMath, remarkReadingTime, remarkAlert],
+    remarkPlugins: [
+      remarkUnwrapImages,
+      remarkMath,
+      remarkReadingTime,
+      remarkAlert,
+      remarkGithubCards,
+      remarkArxivCards
+    ],
     rehypePlugins: [
       [rehypeKatex, {}],
       [

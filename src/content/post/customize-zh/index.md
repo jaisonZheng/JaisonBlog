@@ -33,7 +33,7 @@ language: '中文'
 #### Waline 评论系统
 
 > [!NOTE]
-> 
+>
 > 对应 `src/site.config.ts` 中的 `siteConfig.walineServerUrl` 配置项。
 
 主题的评论、阅读统计、点赞等功能均由 [Waline](https://waline.js.org/) 提供。
@@ -45,7 +45,7 @@ language: '中文'
 #### Footer
 
 > [!NOTE]
-> 
+>
 > 对应 `src/site.config.ts` 中的 `socialLinks` 配置项。
 
 目前支持的社交媒体包括：
@@ -88,11 +88,10 @@ language: '中文'
 - [iconify](https://icon-sets.iconify.design/)
 - [icones](https://icones.js.org/)
 
-
 ## 部署模式
 
 > [!NOTE]
-> 
+>
 > 对应 `astro.config.ts` 中的 `export default defineConfig` 配置项。
 
 如果你采用 Vercel 部署，你无需修改。
