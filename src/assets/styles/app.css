@@ -102,7 +102,6 @@ code {
 
 code .line {
   position: relative;
-  margin-left: 1.5rem;
 }
 
 code .line::before {
@@ -110,7 +109,7 @@ code .line::before {
   counter-increment: step;
   color: rgba(115, 138, 148, 0.4);
   background: rgba(255, 255, 255, 0.8);
-  @apply fixed left-1 inline-flex w-8 justify-end pr-2 sm:left-2;
+  @apply sticky left-0 inline-flex w-6 justify-end pr-2;
 }
 
 .markdown-alert {
