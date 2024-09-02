@@ -20,7 +20,13 @@ const { post } = Astro.props
 const {
   data: { description, ogImage, coverImage, publishDate, title, updatedDate }
 } = post
-const socialImage = ogImage ?? (coverImage ? coverImage.src.src : '/images/social-card.png')
+const socialImage =
+  ogImage ??
+  (coverImage
+    ? typeof coverImage.src === 'string'
+      ? coverImage.src
+      : coverImage.src.src
+    : '/images/social-card.png')
 const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString()
 const { headings } = await post.render()
 const primaryColor = post.data.coverImage?.color ?? 'hsl(var(--primary) / var(--tw-text-opacity))'
