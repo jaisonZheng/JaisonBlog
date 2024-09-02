@@ -51,7 +51,7 @@ const initGitHubCard = async (
     <div class="flex-grow">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <h3
-          class="text-gray-900 dark:text-white font-bold text-center sm:text-left mt-2 mb-1 text-lg"
+          class="text-gray-900 dark:text-white font-bold text-center sm:text-left mt-0 mb-1 text-lg"
         >
           ${data.name}
         </h3>
