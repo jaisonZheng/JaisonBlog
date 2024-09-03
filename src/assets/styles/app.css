@@ -112,6 +112,10 @@ code .line::before {
   @apply sticky left-0 inline-flex w-6 justify-end pr-2;
 }
 
+span.katex-display {
+  @apply overflow-y-scroll pb-2;
+}
+
 .markdown-alert {
   margin-top: 1.25rem !important;
 }
