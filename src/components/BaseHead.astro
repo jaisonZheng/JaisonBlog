@@ -125,7 +125,6 @@ const { walineServerUrl } = siteConfig
       let block = codeBlocks[0]
       let style = block.getAttribute('style')
       if (style) {
-        console.log(style)
         let backgroundColorMatch = style.match(/background-color:\s*([^;]+)/)
         let shikiDarkBgMatch = style.match(/--shiki-dark-bg:\s*([^;]+)/)
         if (backgroundColorMatch && shikiDarkBgMatch) {

@@ -35,13 +35,20 @@ const initGitHubCard = async (
       const [, owner, repo] = match
       try {
         const data = await fetchGitHubApi(`https://api.github.com/repos/${owner}/${repo}`)
+        // sleep 1 second to avoid rate limit
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+        const languagePart = data.language ? `<span class="flex items-center text-xs text-gray-700 dark:text-gray-400">
+              <span class="mr-2 inline-block h-3 w-3 rounded-full bg-gray-700 dark:bg-slate-100"
+              ></span>
+              ${data.language}
+            </span>` : ''
 
         const newNode: Html = {
           type: 'html',
           value: `
   <a href="${data.html_url}" target="_blank" class="not-prose block my-4">
             <div
-    class="github-card bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-center items-center [&_*]:!no-underline"
+    class="github-card bg-gray-100 dark:bg-gray-900 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-center items-center [&_*]:!no-underline"
   >
     <img
       src="${data.owner.avatar_url}"
@@ -55,21 +62,14 @@ const initGitHubCard = async (
         >
           ${data.name}
         </h3>
-        <div class="flex items-center mt-2 sm:mt-0 mx-auto sm:mx-0">
-          <span class="text-yellow-500 flex items-center mr-4">
+        <div class="flex items-center mt-2 sm:mt-0 mx-auto sm:mx-0 gap-4">
+          <span class="text-yellow-500 flex items-center">
             <svg class="w-4 h-4 mr-1">
               <use href="/icons/ui.svg#mingcute-star-line"></use>
             </svg>
             ${data.stargazers_count}
           </span>
-          <span
-            class="text-gray-700 dark:text-gray-400 text-xs flex items-center"
-          >
-            <span
-              class="inline-block w-3 h-3 rounded-full mr-2 bg-gray-700 dark:bg-slate-100"
-            ></span>
-            ${data.language}
-          </span>
+          ${languagePart}
         </div>
       </div>
       <p class="text-gray-700 dark:text-gray-400 text-sm mt-2">
@@ -126,7 +126,7 @@ const initArxivCard = async (
           value: `
   <a href="${data.url}" target="_blank" class="not-prose block my-4">
             <div
-    class="arxiv-card bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-center items-center [&_*]:!no-underline"
+    class="arxiv-card bg-gray-100 dark:bg-gray-900 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-center items-center [&_*]:!no-underline"
   >
     <div class="flex-grow">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">

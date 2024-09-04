@@ -12,6 +12,8 @@ language: '中文'
 
 ## 站点配置
 
+[theme-astro-pure](https://github.com/cworld1/theme-astro-pure)
+
 客制化本主题需要调整较多的源代码。
 
 我们已经尽力将配置项集中在 `src/site.config.ts` 文件中，以方便用户进行修改，并集成了较多常见的社交媒体/工具 icon，如果你想要添加新的 icon，你需要自行修改源代码。

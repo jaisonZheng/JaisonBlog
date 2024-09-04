@@ -12,6 +12,8 @@ language: 'English'
 
 ## Site Configuration
 
+[theme-astro-pure](https://github.com/cworld1/theme-astro-pure)
+
 Customizing this theme requires adjusting a significant amount of source code. 
 
 We have made efforts to centralize the configuration options in the `src/site.config.ts` file for user convenience and have integrated a variety of common social media/tools icons. If you want to add new icons, you will need to modify the source code yourself.
