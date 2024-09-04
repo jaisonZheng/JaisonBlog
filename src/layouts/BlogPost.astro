@@ -92,11 +92,15 @@ const primaryColor = post.data.coverImage?.color ?? 'hsl(var(--primary) / var(--
     position: absolute;
     content: '”';
     top: -5.4rem;
-    right: 0;
+    right: -1.4rem;
     font-size: 10rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
       sans-serif;
     transform: rotate(-15deg);
     opacity: 5%;
+  }
+
+  #content :global(blockquote) {
+    @apply !pe-[1.4rem];
   }
 </style>
