@@ -26,20 +26,21 @@ const data = await fetchGitHubApi(`https://api.github.com/repos/${owner}/${repo}
         >
           {data.name}
         </h3>
-        <div class='mx-auto mt-2 flex items-center sm:mx-0 sm:mt-0 gap-4'>
+        <div class='mx-auto mt-2 flex items-center gap-4 sm:mx-0 sm:mt-0'>
           <span class='flex items-center text-yellow-500'>
             <svg class='mr-1 h-4 w-4'>
               <use href='/icons/ui.svg#mingcute-star-line'></use>
             </svg>
             {data.stargazers_count}
           </span>
-          {data.language && (
-            <span class='flex items-center text-xs text-gray-700 dark:text-gray-400'>
-              <span class='mr-2 inline-block h-3 w-3 rounded-full bg-gray-700 dark:bg-slate-100'
-              ></span>
-              {data.language}
-            </span>
-          )}
+          {
+            data.language && (
+              <span class='flex items-center text-gray-700 dark:text-gray-400'>
+                <span class='mr-2 inline-block h-3 w-3 rounded-full bg-gray-700 dark:bg-slate-100' />
+                {data.language}
+              </span>
+            )
+          }
         </div>
       </div>
       <p class='mt-2 text-sm text-gray-700 dark:text-gray-400'>
