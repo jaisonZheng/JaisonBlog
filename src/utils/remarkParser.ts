@@ -53,7 +53,7 @@ const initGitHubCard = async (
     <img
       src="${data.owner.avatar_url}"
       alt="avatar"
-      class="w-12 h-12 rounded-full mb-4 sm:mb-0 sm:mr-4 mt-0"
+      class="w-12 h-12 rounded-full mb-4 sm:mb-0 sm:!mr-4 mt-0"
     />
     <div class="flex-grow">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
