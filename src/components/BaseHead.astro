@@ -113,35 +113,6 @@ const { walineServerUrl } = siteConfig
   }
   document.addEventListener('DOMContentLoaded', animate)
   document.addEventListener('astro:after-swap', animate)
-
-  function addCodePreStyle() {
-    // line number
-    let codeBlocks = Array.from(document.querySelectorAll('pre'))
-
-    if (codeBlocks.length > 0) {
-      let styleSheet = document.createElement('style')
-      document.head.appendChild(styleSheet)
-
-      let block = codeBlocks[0]
-      let style = block.getAttribute('style')
-      if (style) {
-        let backgroundColorMatch = style.match(/background-color:\s*([^;]+)/)
-        let shikiDarkBgMatch = style.match(/--shiki-dark-bg:\s*([^;]+)/)
-        if (backgroundColorMatch && shikiDarkBgMatch) {
-          let backgroundColor = backgroundColorMatch[1]
-          let shikiDarkBg = shikiDarkBgMatch[1]
-
-          styleSheet.innerHTML = `
-          pre .line::before {
-            background-color: ${backgroundColor};
-            --shiki-dark-bg: ${shikiDarkBg};
-          }
-        `
-        }
-      }
-    }
-  }
-  document.addEventListener('DOMContentLoaded', addCodePreStyle)
 </script>
 
 {/* Vercel speed insights */}
