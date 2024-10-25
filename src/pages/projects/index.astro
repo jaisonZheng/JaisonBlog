@@ -217,7 +217,7 @@ const headings = [
   import { pageviewCount } from 'https://unpkg.com/@waline/client@v3/dist/pageview.js'
 
   pageviewCount({
-    serverURL: document.querySelector('meta[name="waline-server-url"]').getAttribute('content'),
+    serverURL: siteConfig.walineServerUrl,
     path: window.location.pathname
   })
 </script>
