@@ -12,7 +12,7 @@ language: 'English'
 
 ## Site Configuration
 
-[theme-astro-pure](https://github.com/cworld1/theme-astro-pure)
+[astro-theme-pure](https://github.com/cworld1/astro-theme-pure)
 
 Customizing this theme requires adjusting a significant amount of source code. 
 

@@ -1,10 +1,10 @@
-# Theme Astro Pure
+# Astro Theme Pure
 
 [English](./README.md) | [简体中文](./README-zh-CN.md)
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/theme-astro-pure?label=commits&style=flat-square)](https://github.com/cworld1/theme-astro-pure/commits)
-[![GitHub stars](https://img.shields.io/github/stars/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/stargazers)
-[![GitHub license](https://img.shields.io/github/license/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/blob/main/LICENSE)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
+[![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
+[![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 A simple, clean but powerful blog theme build by astro.
 
@@ -22,13 +22,13 @@ Environment requirements:
 Clone the repository:
 
 ```shell
-git clone https://github.com/cworld1/theme-astro-pure.git
+git clone https://github.com/cworld1/astro-theme-pure.git
 ```
 
 Install dependencies:
 
 ```shell
-cd theme-astro-pure
+cd astro-theme-pure
 bun install
 ```
 

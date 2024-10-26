@@ -1,10 +1,10 @@
-# Theme Astro Pure
+# Astro Theme Pure
 
 [English](./README.md) | [简体中文](./README-zh-CN.md)
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/theme-astro-pure?label=commits&style=flat-square)](https://github.com/cworld1/theme-astro-pure/commits)
-[![GitHub stars](https://img.shields.io/github/stars/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/stargazers)
-[![GitHub license](https://img.shields.io/github/license/cworld1/theme-astro-pure?style=flat-square)](https://github.com/cworld1/theme-astro-pure/blob/main/LICENSE)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
+[![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
+[![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 一个简单、干净但功能强大的博客主题，由 Astro 构建。
 
@@ -22,13 +22,13 @@
 克隆存储库：
 
 ```shell
-git clone https://github.com/cworld1/theme-astro-pure.git
+git clone https://github.com/cworld1/astro-theme-pure.git
 ```
 
 安装依赖：
 
 ```shell
-cd theme-astro-pure
+cd astro-theme-pure
 bun install
 ```
 

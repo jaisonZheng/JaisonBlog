@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
   title: 'Astro Theme Pure',
   // Meta property used to generate your sitemap and canonical URLs in your final build
-  site: 'https://theme-astro-pure.vercel.app',
+  site: 'https://astro-theme-pure.vercel.app',
   // Meta property used as the default description meta property
   description: 'Stay hungry, stay foolish',
   // HTML lang property, found in src/layouts/Base.astro L:18
@@ -45,7 +45,7 @@ export const socialLinks: SocialLinks = [
   // },
   {
     name: 'github',
-    url: 'https://github.com/cworld1/theme-astro-pure'
+    url: 'https://github.com/cworld1/astro-theme-pure'
   }
 ]
 

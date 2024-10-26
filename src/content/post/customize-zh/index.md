@@ -12,7 +12,7 @@ language: '中文'
 
 ## 站点配置
 
-[theme-astro-pure](https://github.com/cworld1/theme-astro-pure)
+[astro-theme-pure](https://github.com/cworld1/astro-theme-pure)
 
 客制化本主题需要调整较多的源代码。
 
