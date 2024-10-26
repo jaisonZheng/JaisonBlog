@@ -10,7 +10,7 @@
 
 ## 简介 / 部署
 
-欲了解更多信息，请访问 [cworld 网站](https://cworld.top/blog/theme-resume) 和 [部署说明](https://theme-astro-pure.vercel.app/blog/customize-zh)
+欲了解更多信息，请访问 [CWorld 网站](https://cworld0.com/blog/theme-resume) 和 [部署说明](https://astro-theme-pure.vercel.app/blog/customize-zh)
 
 ## 本地开发
 
@@ -32,11 +32,21 @@ cd astro-theme-pure
 bun install
 ```
 
+> [!NOTE]
+> 对于 Bun，如果安装较慢，建议使用镜像配置，在项目根目录下新建 `bunfig.toml`：
+>
+> ```toml
+> [install]
+> registry = "https://registry.npmmirror.com/"
+> ```
+>
+> 其他 PM 配置镜像请参考各自官方文档。
+
 启动开发服务器：
 
 ```shell
 bun dev
-# 后台任务对 Windows 用户不友好。请改用以下命令：
+# 对于 Windows 用户，Bun 暂时还没有实现后台任务。如使用 Bun 请改用以下命令：
 # bun start
 ```
 
