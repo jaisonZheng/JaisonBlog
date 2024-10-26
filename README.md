@@ -4,13 +4,18 @@
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
 [![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
+[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-theme-pure.vercel.app)](#)
 [![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 A simple, clean but powerful blog theme build by astro.
 
+![image](https://github.com/user-attachments/assets/7eb17ddf-fd5f-42f3-a337-675a21ba7a27)
+
 ## Introduction / Deployment
 
-For more information, please visit the [CWorld Site](https://cworld0.com/blog/theme-resume) and [Deployment Instructions](https://astro-theme-pure.vercel.app/blog/customize)
+[Demo](https://astro-theme-pure.vercel.app/) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
+
+For more information, please visit the [CWorld Site](https://cworld0.com/blog/theme-resume) and [Deployment Instructions](https://astro-theme-pure.vercel.app/blog/customize).
 
 ## Local development
 
