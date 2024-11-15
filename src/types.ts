@@ -10,6 +10,7 @@ export type SiteConfig = {
     options: Intl.DateTimeFormatOptions
   }
   pageSize: number
+  externalLinkArrow: boolean
   registration?: {
     url: string
     text: string

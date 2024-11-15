@@ -24,6 +24,7 @@ export const siteConfig: SiteConfig = {
   },
   // Customize
   pageSize: 8,
+  externalLinkArrow: true,
   registration: {
     url: 'https://icp.gov.moe/?keyword=APTX4869',
     text: '萌ICP备APTX4869号'

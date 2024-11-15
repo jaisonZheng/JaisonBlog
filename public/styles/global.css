@@ -59,3 +59,47 @@ body::-webkit-scrollbar {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* Shiki transformer */
+.astro-code:has(code) {
+  position: relative;
+}
+.astro-code:has(div.title) pre {
+  padding-top: 2.25rem;
+}
+.astro-code button.copy {
+  & .success::before {
+    content: 'Copied!';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    color: hsl(var(--muted-foreground));
+    background-color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--border));
+  }
+  &.copied {
+    & .success {
+      display: block;
+    }
+
+    & .ready {
+      display: none;
+    }
+  }
+}
+.astro-code:hover {
+  button.copy {
+    opacity: 1;
+  }
+  .language {
+    opacity: 0;
+  }
+}

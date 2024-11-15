@@ -9,7 +9,6 @@ import vercel from '@astrojs/vercel/serverless'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import playformCompress from '@playform/compress'
 import icon from 'astro-icon'
 // Markdown
 import rehypeExternalLinks from 'rehype-external-links'
@@ -18,7 +17,9 @@ import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { siteConfig } from './src/site.config.ts'
+import { addCopyButton, addLanguage } from './src/utils/shiki.ts'
 import { remarkGithubCards, remarkReadingTime, remarkArxivCards } from './src/utils/remarkParser.ts'
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,8 +46,9 @@ export default defineConfig({
     sitemap(),
     mdx(),
     icon(),
-    playformCompress({
-      SVG: false
+    (await import('@playform/compress')).default({
+      SVG: false,
+      Exclude: ['index.*.js']
     })
   ],
   // root: './my-project-directory',
@@ -72,6 +74,7 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
+          ...(siteConfig.externalLinkArrow && { content: { type: 'text', value: ' ↗' } }),
           target: '_blank',
           rel: ['nofollow, noopener, noreferrer']
         }
@@ -86,7 +89,8 @@ export default defineConfig({
       themes: {
         dark: 'github-dark',
         light: 'github-light'
-      }
+      },
+      transformers: [addLanguage(), addCopyButton(2000)]
     }
   }
 })
