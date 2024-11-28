@@ -17,13 +17,22 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
 // Markdown
-import { remarkReadingTime, remarkGithubCards, remarkArxivCards } from './src/utils/remarkPlugins.ts'
+import {
+  remarkReadingTime,
+  remarkGithubCards,
+  remarkArxivCards
+} from './src/plugins/remarkPlugins.ts'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
 import { siteConfig } from './src/site.config.ts'
-import { addCopyButton, addTitle, addLanguage, updateStyle } from './src/utils/shikiTransformers.ts'
+import {
+  addCopyButton,
+  addTitle,
+  addLanguage,
+  updateStyle
+} from './src/plugins/shikiTransformers.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,7 +54,7 @@ export default defineConfig({
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp'
-    },
+    }
   },
 
   integrations: [
@@ -80,7 +89,7 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
-          ...(siteConfig.externalLinkArrow && { content: { type: 'text', value: ' ↗' } }),
+          ...(siteConfig.blog.externalLinkArrow && { content: { type: 'text', value: ' ↗' } }),
           target: '_blank',
           rel: ['nofollow, noopener, noreferrer']
         }

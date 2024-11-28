@@ -39,7 +39,7 @@ html.dark {
 /* Katex */
 span.katex-display {
   overflow-y: scroll;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 /* Markdown Alert */
 .markdown-alert {
@@ -69,6 +69,10 @@ span.katex-display {
         justify-content: end;
         display: inline-flex;
         width: 1rem;
+      }
+      & .line:last-child:empty,
+      & .line:last-child:has(> span:empty:only-child) {
+        display: none;
       }
     }
   }
