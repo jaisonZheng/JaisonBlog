@@ -36,9 +36,8 @@ Install dependencies:
 cd astro-theme-pure
 bun install
 ```
-
 > [!NOTE]
-> For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating `bunfig.toml` under the project root directory:
+> For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating  `bunfig.toml` under the project root directory:
 >
 > ```toml
 > [install]
