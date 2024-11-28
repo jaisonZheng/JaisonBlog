@@ -19,7 +19,6 @@ import icon from 'astro-icon'
 // Markdown
 import {
   remarkReadingTime,
-  remarkAddZoomable,
   remarkGithubCards,
   remarkArxivCards
 } from './src/plugins/remarkPlugins.ts'
@@ -79,9 +78,8 @@ export default defineConfig({
   // Markdown Options
   markdown: {
     remarkPlugins: [
-      remarkReadingTime,
-      remarkAddZoomable,
       remarkMath,
+      remarkReadingTime,
       remarkAlert,
       remarkGithubCards,
       remarkArxivCards
