@@ -14,7 +14,7 @@ language: 'English'
 
 [astro-theme-pure](https://github.com/cworld1/astro-theme-pure)
 
-Customizing this theme requires adjusting a significant amount of source code. 
+Customizing this theme requires adjusting a significant amount of source code.
 
 We have made efforts to centralize the configuration options in the `src/site.config.ts` file for user convenience and have integrated a variety of common social media/tools icons. If you want to add new icons, you will need to modify the source code yourself.
 
@@ -35,7 +35,7 @@ Some special configuration items are explained as follows:
 #### Waline Comment System
 
 > [!NOTE]
-> 
+>
 > Corresponds to the `siteConfig.walineServerUrl` configuration item in `src/site.config.ts`.
 
 The theme's comment, read statistics, likes, and other functionalities are all provided by [Waline](https://waline.js.org/).
@@ -47,7 +47,7 @@ This theme only requires providing the final backend domain name in the `siteCon
 #### Footer
 
 > [!NOTE]
-> 
+>
 > Corresponds to the `socialLinks` configuration item in `src/site.config.ts`.
 
 Currently supported social media include:
@@ -93,7 +93,7 @@ It is recommended to find new icons on the following websites to maintain consis
 ## Deployment Mode
 
 > [!NOTE]
-> 
+>
 > Corresponds to the `export default defineConfig` configuration item in `astro.config.ts`.
 
 If you are deploying with Vercel, no modification is needed.
