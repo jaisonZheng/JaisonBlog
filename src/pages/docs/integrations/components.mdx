@@ -5,7 +5,7 @@ title: 'User Components'
 description: 'Easily extend your content page more interactive'
 ---
 
-import { Aside } from '@/components/user'
+import { Aside, Tabs, TabItem } from '@/components/user'
 
 Components let you easily reuse a piece of UI or styling consistently. You can use them not just in `.astro` files, but also in `.mdx` files.
 
@@ -13,10 +13,14 @@ Components let you easily reuse a piece of UI or styling consistently. You can u
 [MDX](https://mdxjs.com/) is a format that lets you write JSX embedded inside Markdown. And it has no difference with markdown files in other ways.
 </Aside>
 
+For `.astro`, you can directly import and use components and use. An example will shown in the first section.
+
 ## Container
 
 ### Card
 
+<Tabs>
+<TabItem label='MDX'>
 ```jsx
 import { Card } from '@/components/user'
 
@@ -30,8 +34,27 @@ import { Card } from '@/components/user'
   You can even contain a list here
 </Card>
 ```
+</TabItem>
+<TabItem label='Astro'>
+```astro
+---
+import { Card } from '@/components/user'
+---
+<!-- ... -->
+<Card
+  as='a'
+  href='#card'
+  heading='Lorem ipsum'
+  subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
+  date='August 2021'
+>
+  You can even contain a list here
+</Card>
+```
+</TabItem>
+</Tabs>
 
-Like this:
+Renders:
 
 import { Card } from '@/components/user'
 
@@ -53,7 +76,7 @@ import { Collapse } from '@/components/user'
 <Collapse title='Lorem ipsum'> Lorem ipsum dolor sit amet, vidit suscipit at mei. </Collapse>
 ```
 
-Like this:
+Renders:
 
 import { Collapse } from '@/components/user'
 
@@ -76,7 +99,7 @@ Other content is also supported in aside! 😍
 <Aside type="danger">Have you used `rm -rf` to clean your computer? 😡</Aside>
 ```
 
-Like this:
+Renders:
 
 <Aside>No type selected will default to 'note'. 😉</Aside>
 <Aside type="tip">
@@ -89,6 +112,14 @@ Other content is also supported in aside! 😍
 <Aside type='caution' title='You should know it!'>Is your code buggy again? 🤨</Aside>
 <Aside type="danger">Have you used `rm -rf` to clean your computer? 😡</Aside>
 
+This component also has a remark support version (which can directly use in `.md`), but not integrated in this theme. You can check [packages/starlight/index.ts](https://github.com/withastro/starlight/blob/main/packages/starlight/integrations/asides.ts) for reference code.
+
+```md
+:::tip
+This theme author is a good guy.
+:::
+```
+
 ### Tabs
 
 ```jsx
@@ -100,9 +131,7 @@ import { Tabs, TabItem } from '@/components/user';
 </Tabs>
 ```
 
-Like this:
-
-import { Tabs, TabItem } from '@/components/user';
+Renders:
 
 <Tabs>
   <TabItem label="Stars">Sirius, Vega, Betelgeuse</TabItem>
@@ -129,7 +158,7 @@ import { CardList } from '@/components/user'
 } />
 ```
 
-Like this:
+Renders:
 
 import { CardList } from '@/components/user'
 
@@ -158,7 +187,7 @@ import { Timeline } from '@/components/user'
 } />
 ```
 
-Like this:
+Renders:
 
 import { Timeline } from '@/components/user'
 
@@ -183,7 +212,7 @@ How to Yi Jian San Lian:
 </Steps>
 ```
 
-Like this:
+Renders:
 
 import { Steps } from '@/components/user'
 
@@ -195,7 +224,7 @@ How to Yi Jian San Lian:
 3. Shou Cang
 </Steps>
 
-## Simple Text Rerender
+## Simple Text Render
 
 ### Button
 
@@ -211,7 +240,7 @@ import { Button } from '@/components/user'
 </div>
 ```
 
-Like this:
+Renders:
 
 import { Button } from '@/components/user'
 
@@ -231,7 +260,7 @@ import { Spoiler } from '@/components/user'
 <Spoiler>No one can find me.</Spoiler> But I am exposed here.
 ```
 
-Like this:
+Renders:
 
 import { Spoiler } from '@/components/user'
 
@@ -245,7 +274,7 @@ import { FormattedDate } from '@/components/user'
 <FormattedDate date={new Date('2021-08-01')} dateTimeOptions={{ month: 'short' }} />
 ```
 
-Like this:
+Renders:
 
 import { FormattedDate } from '@/components/user'
 
@@ -259,7 +288,7 @@ import { Label } from '@/components/user'
 <Label title='Hello' />
 ```
 
-Like this:
+Renders:
 
 import { Label } from '@/components/user'
 
