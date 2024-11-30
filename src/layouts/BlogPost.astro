@@ -15,9 +15,9 @@ import { Button } from '@/components/user'
 import '@waline/client/style'
 import 'katex/dist/katex.min.css'
 
-import MediumZoom from '@/components/blog/MediumZoom.astro'
+import { MediumZoom } from '@/components/advanced'
 import { cn } from '@/utils'
-import { siteConfig } from '@/site-config'
+import { integrationConfig } from '@/site-config'
 
 interface Props {
   post: CollectionEntry<'post'>
@@ -51,13 +51,12 @@ const primaryColor = post.data.heroImage?.color ?? 'hsl(var(--primary) / var(--t
             headings={headings}
           />
         )
-        /* class='animate sticky top-24 z-10 basis-60 max-lg:bottom-0 max-lg:left-0 max-lg:hidden max-lg:w-full max-lg:bg-primary-foreground max-lg:p-4 lg:order-2' */
       }
       <article class='min-w-0 grow'>
         <div id='content-header' class='animate'><BlogHero content={post} /></div>
         <div
           id='content'
-          class={cn('animate mt-8 max-w-none md:min-w-[45ch]', siteConfig.content.typographyProse)}
+          class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integrationConfig.typography.class)}
         >
           <slot />
         </div>
@@ -81,13 +80,4 @@ const primaryColor = post.data.heroImage?.color ?? 'hsl(var(--primary) / var(--t
   </div>
 </PageLayout>
 
-<MediumZoom />
-
-<style define:vars={{ primaryColor }}>
-  :global(.highlight) {
-    color: var(--primaryColor) !important;
-  }
-  :global(.highlight-bg) {
-    background-color: var(--primaryColor) !important;
-  }
-</style>
+{integrationConfig.mediumZoom.enable && <MediumZoom />}

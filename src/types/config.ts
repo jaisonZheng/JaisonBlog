@@ -1,4 +1,4 @@
-import type { SocialLink } from './common'
+import type { ShareItem, SocialLink } from './common'
 
 export interface SiteConfig {
   author: string
@@ -33,7 +33,7 @@ export interface SiteConfig {
 
   content: {
     externalLinkArrow: boolean
-    typographyProse: string
+    share: ShareItem[]
   }
 }
 
@@ -50,5 +50,17 @@ export interface IntegrationConfig {
     server?: string
     emoji?: string[]
     additionalConfigs: Record<string, unknown>
+  }
+  typography: {
+    class: string
+  }
+  mediumZoom: {
+    enable: boolean
+    selector: string
+    options: Record<string, unknown>
+  }
+  quote: {
+    server: string
+    target: (data: unknown) => string
   }
 }

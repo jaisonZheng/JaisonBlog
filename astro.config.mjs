@@ -1,39 +1,33 @@
 // @ts-check
 
-import { defineConfig } from 'astro/config'
-
-// Adapter
-// 1. Vercel (serverless)
-import vercelServerless from '@astrojs/vercel/serverless'
-// 2. Vercel (static)
-// import vercelStatic from '@astrojs/vercel/static';
-// 3. Local (standalone)
-// import node from '@astrojs/node'
-// ---
-
-// Integrations
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+// Adapter
+import vercelServerless from '@astrojs/vercel/serverless'
 import icon from 'astro-icon'
-// Markdown
-import {
-  remarkReadingTime,
-  remarkAddZoomable,
-  remarkGithubCards,
-  remarkArxivCards
-} from './src/plugins/remarkPlugins.ts'
+import { defineConfig } from 'astro/config'
+// Integrations
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import { siteConfig } from './src/site.config.ts'
+
+// Markdown
+import {
+  remarkAddZoomable,
+  remarkArxivCards,
+  remarkGithubCards,
+  remarkReadingTime
+} from './src/plugins/remarkPlugins.ts'
 import {
   addCopyButton,
-  addTitle,
   addLanguage,
-  updateStyle,
-  transformerNotationDiff
+  addTitle,
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  updateStyle
 } from './src/plugins/shikiTransformers.ts'
+import { integrationConfig, siteConfig } from './src/site.config.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -80,10 +74,13 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       remarkReadingTime,
-      remarkAddZoomable,
       remarkMath,
       remarkGithubCards,
-      remarkArxivCards
+      remarkArxivCards,
+      // @ts-ignore
+      ...(integrationConfig.mediumZoom.enable
+        ? [[remarkAddZoomable, integrationConfig.mediumZoom.options]] // Wrap in array to ensure it's iterable
+        : [])
     ],
     rehypePlugins: [
       [rehypeKatex, {}],
@@ -105,6 +102,7 @@ export default defineConfig({
       },
       transformers: [
         transformerNotationDiff(),
+        transformerNotationHighlight(),
         updateStyle(),
         addTitle(),
         addLanguage(),
