@@ -1,7 +1,7 @@
 ---
 title: Markdown Syntax Support
 publishDate: 2024-07-26 08:00:00
-description: 'Markdown is a lightweight "markup language."'
+description: 'Markdown is a lightweight markup language.'
 tags:
   - Markdown
 heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
@@ -31,20 +31,12 @@ Header previews would disrupt the structure of the article, so they are not disp
 ### Bold and Italics
 
 ```markdown
-_Italic text_
-
-**Bold text**
-
-**_Bold Italic text_**
+_Italic text_ and **Bold text**, together will be **_Bold Italic text_**
 ```
 
 Preview:
 
-_Italic text_
-
-**Bold text**
-
-**_Bold Italic text_**
+_Italic text_ and **Bold text**, together will be **_Bold Italic text_**
 
 ### Links
 
@@ -73,7 +65,8 @@ This is an `inline code`
 // calculate fibonacci
 function fibonacci(n) {
   if (n <= 1) return 1
-  return fibonacci(n - 1) + fibonacci(n - 2)
+  const result = fibonacci(n - 1) + fibonacci(n - 2) // [\!code --]
+  return fibonacci(n - 1) + fibonacci(n - 2) // [\!code ++]
 }
 ```
 ````
@@ -84,11 +77,12 @@ Preview:
 // calculate fibonacci
 function fibonacci(n) {
   if (n <= 1) return 1
-  return fibonacci(n - 1) + fibonacci(n - 2)
+  const result = fibonacci(n - 1) + fibonacci(n - 2) // [!code --]
+  return fibonacci(n - 1) + fibonacci(n - 2) // [!code ++]
 }
 ```
 
-Currently using shiki as the code highlighting plugin. For supported languages, refer to [shiki / languages](https://shiki.matsu.io/languages.html).
+Currently using shiki as the code highlighting plugin. For supported languages, refer to [Shiki: Languages](https://shiki.matsu.io/languages.html).
 
 ### Inline Formula
 
