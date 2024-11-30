@@ -5,11 +5,11 @@ export const docs: CardListData = {
   title: 'Docs content',
   list: [
     {
-      title: 'Start',
+      title: 'Setup',
       children: [
-        { title: 'Getting Started', link: '/docs/getting-started' },
-        { title: 'Configuration', link: '/docs/configuration' },
-        { title: 'Deployment', link: '/docs/deployment' }
+        { title: 'Getting Started', link: '/docs/setup/getting-started' },
+        { title: 'Configuration', link: '/docs/setup/configuration' },
+        { title: 'Deployment', link: '/docs/setup/deployment' }
       ]
     },
     {
@@ -23,7 +23,9 @@ export const docs: CardListData = {
     },
     {
       title: 'Advanced',
-      children: [{ title: 'Update Theme', link: '/docs/update' }]
+      children: [
+        { title: 'Update Theme', link: '/docs/advanced/update' },
+      ]
     }
   ]
 }

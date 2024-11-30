@@ -3,7 +3,7 @@ import PageLayout from '@/layouts/BaseLayout.astro'
 
 import { Button, CardList } from '@/components/user'
 import { cn } from '@/utils'
-import { siteConfig } from '@/site-config'
+import { integrationConfig } from '@/site-config'
 
 import { docs } from './contents'
 
@@ -15,7 +15,7 @@ const meta = {
 }
 ---
 
-<PageLayout meta={meta}>
+<PageLayout {meta}>
   <div class='w-full'>
     <Button title='Back' href='/' style='back' />
     <h1 id='content-header' class='animate mb-6 mt-6 text-3xl font-medium sm:mt-10'>
@@ -24,7 +24,7 @@ const meta = {
 
     <div
       id='content'
-      class={cn('animate mt-8 max-w-none md:min-w-[45ch]', siteConfig.content.typographyProse)}
+      class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integrationConfig.typography.class)}
     >
       <h2 class='text-xl font-medium'>Theme documentation</h2>
       <CardList {...docs} />
