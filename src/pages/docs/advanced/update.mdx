@@ -14,28 +14,25 @@ import { Aside } from '@/components/user'
 
 ## Breaking Changes
 
-### v3.0.9
+### v3.1.4
 
-A stable version.
+- Move config `siteConfig.content.typographyProse` to `integrationConfig.typography.class` in `src/site.config.ts`.
+- Move advanced components to `src/components/advanced`. Affected components are included in [Advanced Components](/docs/integrations/advanced). Import method is also changed:
 
-### v3.1.0 (pre-release)
+  ```ts
+  import LinkPreview from '@/components/LinkPreview.astro' // [!code --]
+  import { LinkPreview } from '@/components/advanced' // [!code ++]
 
-- Change common content markdown formatter `coverImage` to `heroImage`. You need to modify all your markdown files to replace `coverImage` with `heroImage`.
+  <LinkPreview href='https://www.cloudflare.com/' />
+  ```
 
-### v3.1.1
-
-- Move the internal parts in the `src/utils` to `src/plugins`.
-- Modify the configuration file `astro.config.ts` to `astro.config.mjs`.
-- Update ESLint to latest version and migrate configuration file `.eslintrc.js` to `eslint.config.mjs`.
-- Modify the `prettier.config.js` to `prettier.config.mjs`.
-
-### v3.1.2 (pre-release)
-
-- Move some configuration items like `telegram`, `walineServelURL` to new structure in `src/site.config.ts`.
+- Move `Substats` config to related page `src/pages/about/index.astro`.
+- Change Github Card component to `GithubCard` in `src/components/advanced`. See [Advanced Components #Github Card](http://localhost:4321/docs/integrations/advanced#github-card) for usage.
+- Move Links Logbook to `src/site.config.ts`. See [Friend Links #Basic Configurations](/docs/integrations/links#basic-configurations).
 
 ### v3.1.3
 
-- Move user components to `src/components/user`. Affected components are included in [User Components](/docs/integrations/components) Import method is also changed:
+- Move user components to `src/components/user`. Affected components are included in [User Components](/docs/integrations/components). Import method is also changed:
 
   ```ts
   import Button from '@/components/Button' // [!code --]
@@ -44,9 +41,24 @@ A stable version.
 
 - Replace `remark-github-blockquote-alert` plugin to component `Aside`. Check [User Components #Aside](/docs/integrations/components#aside) to know how to migrate.
 
-### v3.1.4
+### v3.1.2 (pre-release)
 
-- Move config `siteConfig.content.typographyProse` to `integrationConfig.typography.class` in `src/site.config.ts`.
+- Move some configuration items like `telegram`, `walineServelURL` to new structure in `src/site.config.ts`.
+
+### v3.1.1
+
+- Move the internal parts in the `src/utils` to `src/plugins`.
+- Modify the configuration file `astro.config.ts` to `astro.config.mjs`.
+- Update ESLint to latest version and migrate configuration file `.eslintrc.js` to `eslint.config.mjs`.
+- Modify the `prettier.config.js` to `prettier.config.mjs`.
+
+### v3.1.0 (pre-release)
+
+- Change common content markdown formatter `coverImage` to `heroImage`. You need to modify all your markdown files to replace `coverImage` with `heroImage`.
+
+### v3.0.9
+
+A stable version.
 
 Pending update...
 
@@ -93,7 +105,7 @@ d: \\\.astro
 d: ^\\public\\favicon$
 f: ^public\\links\.json$
 
-d: ^\\scripts$
+d: ^\\scripts-web$
 
 d: ^\\src\\assets\\projects$
 f: ^src\\assets\\avatar\.png$
