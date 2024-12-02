@@ -27,7 +27,8 @@ export const docs: CardListData = {
       title: 'Advanced',
       children: [
         { title: 'Update Theme', link: '/docs/advanced/update' },
-        { title: 'Optimize Your Site', link: '/docs/advanced/optimize' }
+        { title: 'Optimize Your Site', link: '/docs/advanced/optimize' },
+        { title: 'Acknowledgements', link: '/docs/advanced/thanks' }
       ]
     }
   ]
