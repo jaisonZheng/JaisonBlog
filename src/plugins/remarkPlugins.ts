@@ -42,7 +42,7 @@ interface ArxivArticleInfo {
   url: string
 }
 
-async function fetchArxivApi(id: string): Promise<ArxivArticleInfo> {
+export async function fetchArxivApi(id: string): Promise<ArxivArticleInfo> {
   const response = await fetch(`https://export.arxiv.org/api/query?id_list=${id}`)
   if (!response.ok) {
     throw new Error(
@@ -56,7 +56,7 @@ async function fetchArxivApi(id: string): Promise<ArxivArticleInfo> {
   const entry = xmlDoc.getElementsByTagName('entry')[0]
   const title = entry.getElementsByTagName('title')[0].textContent || ''
   const authors = Array.from(entry.getElementsByTagName('author'))
-    .map((author: any) => author.getElementsByTagName('name')[0].textContent || '')
+    .map((author: Element) => author.getElementsByTagName('name')[0].textContent || '')
     .join(', ')
 
   return {
@@ -127,7 +127,7 @@ const initArxivCard = async (
 }
 export function remarkArxivCards() {
   return async function transformer(tree: Root) {
-    const promises: any[] = []
+    const promises: Promise<void>[] = []
     visit(tree, 'paragraph', (node, index, parent) => {
       promises.push(initArxivCard(node, index, parent))
     })
