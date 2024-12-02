@@ -2,8 +2,8 @@
 import PageLayout from '@/layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
 
+import { Quote } from '@/components/advanced'
 import PostPreview from '@/components/blog/PostPreview.astro'
-import Hitokoto from '@/components/home/Hitokoto.astro'
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
@@ -51,6 +51,21 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           </Label>
         </div>
       </div>
+
+      {/* Get template */}
+      <a
+        href='https://github.com/cworld1/astro-theme-pure'
+        target='_blank'
+        class='flex flex-row items-center gap-x-3 rounded-full border border-border px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
+      >
+        <span class='relative flex items-center justify-center'>
+          <span
+            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
+          ></span>
+          <span class='size-2 rounded-full bg-green-400'></span>
+        </span>
+        <p class='font-medium text-muted-foreground'>Get Template</p>
+      </a>
     </section>
 
     <div id='content' class='flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
@@ -174,16 +189,5 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
     </div>
   </div>
 
-  <div
-    class='mt-16 flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
-  >
-    <span class='relative flex items-center justify-center'>
-      <span
-        class='absolute inline-flex h-2 w-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-      ></span>
-      <span class='relative inline-flex h-2 w-2 rounded-full bg-green-400'></span>
-    </span>
-
-    <Hitokoto />
-  </div>
+  <Quote class='mt-12' />
 </PageLayout>

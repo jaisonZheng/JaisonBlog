@@ -1,24 +1,28 @@
 // @ts-check
 
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 // Adapter
 import vercelServerless from '@astrojs/vercel/serverless'
+// Integrations
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
-// Integrations
+// Rehype & remark packages
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
+// Local rehype & remark plugins
+import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
 // Markdown
 import {
   remarkAddZoomable,
   remarkArxivCards,
-  remarkGithubCards,
   remarkReadingTime
 } from './src/plugins/remarkPlugins.ts'
+// Shiki
 import {
   addCopyButton,
   addLanguage,
@@ -75,7 +79,6 @@ export default defineConfig({
     remarkPlugins: [
       remarkReadingTime,
       remarkMath,
-      remarkGithubCards,
       remarkArxivCards,
       // @ts-ignore
       ...(integrationConfig.mediumZoom.enable
@@ -91,9 +94,17 @@ export default defineConfig({
           target: '_blank',
           rel: ['nofollow, noopener, noreferrer']
         }
+      ],
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: { className: ['anchor'] },
+          content: { type: 'text', value: '#' }
+        }
       ]
     ],
-    // remarkRehype: { },
     // https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {

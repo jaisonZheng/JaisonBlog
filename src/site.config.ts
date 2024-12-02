@@ -3,7 +3,7 @@ import type { CardListData, FooterConfig, IntegrationConfig, MenuLinks, SiteConf
 export const siteConfig: SiteConfig = {
   // === Required meta properties ===
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-  author: 'CWorld / Arthals',
+  author: 'Pure Lab',
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
   title: 'Astro Theme Pure',
   // Meta property used to generate your sitemap and canonical URLs in your final build
@@ -31,20 +31,11 @@ export const siteConfig: SiteConfig = {
   // - https://cdn.smartcis.cn/npm
   // - https://unkpg.com
   // - https://cdn.cbd.int
+  // - https://esm.sh
 
   // === Customize options ===
   blog: {
     pageSize: 8 // blog page size for pagination
-  },
-
-  links: {
-    // Link info
-    applyTip: {
-      name: 'Astro Theme Pure',
-      desc: '求知若愚，虚怀若谷',
-      url: 'https://astro-theme-pure.vercel.app/',
-      avatar: 'https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200'
-    }
   },
 
   seo: {
@@ -54,6 +45,7 @@ export const siteConfig: SiteConfig = {
   },
   content: {
     externalLinkArrow: true, // show external link arrow
+    // Currently support weibo, x, bluesky
     share: ['weibo', 'x', 'bluesky']
   }
 }
@@ -79,8 +71,10 @@ export const footerConfig: FooterConfig = {
 }
 
 export const integrationConfig: IntegrationConfig = {
+  // Comment system
   waline: {
-    // Comment system service link (no link to disable)
+    enable: true,
+    // Server service link
     server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
@@ -96,6 +90,22 @@ export const integrationConfig: IntegrationConfig = {
       imageUploader: false
     }
   },
+  links: {
+    // Friend logbook
+    logbook: [
+      { date: '2024-07-01', content: 'Lorem ipsum dolor sit amet.' },
+      { date: '2024-07-01', content: 'vidit suscipit at mei.' },
+      { date: '2024-07-01', content: 'Quem denique mea id.' }
+    ],
+    // Yourself link info
+    applyTip: {
+      name: siteConfig.title,
+      desc: siteConfig.description,
+      url: siteConfig.site,
+      avatar: siteConfig.site + 'favicon/favicon.ico'
+    }
+  },
+  // Tailwindcss typography
   typography: {
     // https://github.com/tailwindlabs/tailwindcss-typography
     class: 'prose prose-pure dark:prose-invert dark:prose-pure prose-headings:font-medium'
@@ -108,7 +118,7 @@ export const integrationConfig: IntegrationConfig = {
       className: 'zoomable'
     }
   },
-  // https://developer.hitokoto.cn/
+  // Add a random quote to the footer (default on homepage footer)
   quote: {
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
     // server: 'https://v1.hitokoto.cn/?c=i',
