@@ -17,9 +17,10 @@ export const docs: CardListData = {
       title: 'Integrations',
       children: [
         { title: 'Comment System', link: '/docs/integrations/comment' },
+        { title: 'Friend Links', link: '/docs/integrations/links' },
         { title: 'Shiki Code', link: '/docs/integrations/code' },
         { title: 'User Components', link: '/docs/integrations/components' },
-        { title: 'Advanced Components', link: '/docs/integrations/advanced-components' },
+        { title: 'Advanced Components', link: '/docs/integrations/advanced' },
         { title: 'Other Integrations', link: '/docs/integrations/others' }
       ]
     },
