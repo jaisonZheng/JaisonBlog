@@ -59,6 +59,7 @@ span.katex-display {
       counter-increment: step 0;
       position: relative;
       overflow: scroll;
+      color: var(--tw-prose-body);
 
       & .line::before {
         content: counter(step);
@@ -70,7 +71,7 @@ span.katex-display {
         position: sticky;
         left: 0;
         background-color: hsl(var(--primary-foreground));
-        width: 1rem;
+        width: 2rem;
         padding-right: 0.5rem;
       }
       & .line:last-child:empty,
@@ -153,6 +154,9 @@ span.katex-display {
   }
   .astro-code pre span {
     color: var(--shiki-dark) !important;
+  }
+  .astro-code pre .line::before {
+    background-color: var(--shiki-dark-bg);
   }
 }
 
