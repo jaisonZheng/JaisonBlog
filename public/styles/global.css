@@ -55,19 +55,25 @@ span.katex-display {
 
     & code {
       display: block;
-      width: fit-content;
+      width: 100%;
       min-width: 100%;
       counter-reset: step;
       counter-increment: step 0;
+      position: relative;
+      overflow: scroll;
 
       & .line::before {
         content: counter(step);
         counter-increment: step;
         color: hsl(var(--muted-foreground) / 0.6);
         margin-inline-end: 0.75rem;
-        justify-content: end;
+        justify-content: flex-end;
         display: inline-flex;
+        position: sticky;
+        left: 0;
+        background-color: hsl(var(--primary-foreground));
         width: 1rem;
+        padding-right: 0.5rem;
       }
       & .line:last-child:empty,
       & .line:last-child:has(> span:empty:only-child) {
