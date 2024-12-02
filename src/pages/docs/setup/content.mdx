@@ -5,7 +5,7 @@ title: 'Authoring Content'
 description: 'Astro is a perfect choice for your content-focused site: blogs, marketing sites, portfolios, and more!'
 ---
 
-import {Aside } from '@/components/user'
+import { Aside } from '@/components/user'
 
 Astro helps you [author and present your content](https://docs.astro.build/en/guides/content/). You can write a blog post directly in Astro using Markdown/MDX, or fetch your content from a headless CMS. Astro lets you build a site around your content: you can add a layout to your pages, create an index of posts, and set up an RSS feed to allow readers to subscribe.
 
@@ -59,13 +59,17 @@ publishDate: 2024-07-26
 I like writing simple articles.
 ```
 
+<Aside type='tip'>
+This theme has a quick script to create a new article for you. Just run `bun new-post <post-slug>` in your terminal.
+</Aside>
+
 ### MDX Authoring
 
 This allows you to include UI elements such as a banner or an interactive carousel along with your text content.
 
 Write and edit `.mdx` files directly in your code editor, alongside your project files. MDX files are a [supported page file type](https://docs.astro.build/en/basics/astro-pages/#supported-page-files) in Astro, and may also be used as [content collection entries](https://docs.astro.build/en/guides/content/#content-collections).
 
-For integrated components, checkout [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced-components).
+For integrated components, checkout [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced).
 
 ### Connect a CMS
 
