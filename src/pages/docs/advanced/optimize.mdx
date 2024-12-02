@@ -14,6 +14,22 @@ This theme has integrated with:
 - `sharp`: image optimization
 - [`@playform/compress`](/docs/integrations/others#playformcompress): HTML, CSS, JS, images minify
 
+## CDN
+
+Some light-weighted libraries are using js static links. You can configure CDN links to improve your site performance.
+
+```js title="src/site.config.ts"
+export const siteConfig: SiteConfig = {
+  // ...
+  npmCDN: 'https://cdn.jsdelivr.net/npm',
+  // Recommend:
+  // - https://cdn.jsdelivr.net/npm
+  // - https://cdn.smartcis.cn/npm
+  // - https://unkpg.com
+  // - https://cdn.cbd.int
+}
+```
+
 ## Coding
 
 It is a good way to use "Typescript-like" syntax comment in your `.astro` files. It can ensure your comment will not be rendered in the final production HTML file.
