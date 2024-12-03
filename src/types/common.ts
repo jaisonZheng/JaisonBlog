@@ -27,6 +27,8 @@ export interface SocialLink {
   url: string
 }
 
+export type ShareItem = 'weibo' | 'x' | 'bluesky'
+
 export type CardListData = {
   title: string
   list: CardList
@@ -37,3 +39,8 @@ export type CardList = {
   link?: string
   children?: CardList
 }[]
+
+export type TimelineEvent = {
+  date: string
+  content: string
+}

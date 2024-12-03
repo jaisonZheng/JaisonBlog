@@ -1,6 +1,6 @@
 ---
 title: Personalized Customization Guide
-publishDate: 2024-07-27 08:00:00
+publishDate: 2024-07-27
 description: 'astro-theme-pure Personalized Customization Guide'
 tags:
   - Waline

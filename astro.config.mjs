@@ -1,39 +1,37 @@
 // @ts-check
 
-import { defineConfig } from 'astro/config'
-
-// Adapter
-// 1. Vercel (serverless)
-import vercelServerless from '@astrojs/vercel/serverless'
-// 2. Vercel (static)
-// import vercelStatic from '@astrojs/vercel/static';
-// 3. Local (standalone)
-// import node from '@astrojs/node'
-// ---
-
-// Integrations
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+// Adapter
+import vercelServerless from '@astrojs/vercel/serverless'
+// Integrations
 import icon from 'astro-icon'
-// Markdown
-import {
-  remarkReadingTime,
-  remarkAddZoomable,
-  remarkGithubCards,
-  remarkArxivCards
-} from './src/plugins/remarkPlugins.ts'
+import { defineConfig } from 'astro/config'
+// Rehype & remark packages
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import { siteConfig } from './src/site.config.ts'
+
+// Local rehype & remark plugins
+import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
+// Markdown
+import {
+  remarkAddZoomable,
+  remarkArxivCards,
+  remarkReadingTime
+} from './src/plugins/remarkPlugins.ts'
+// Shiki
 import {
   addCopyButton,
-  addTitle,
   addLanguage,
-  updateStyle,
-  transformerNotationDiff
+  addTitle,
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  updateStyle
 } from './src/plugins/shikiTransformers.ts'
+import { integrationConfig, siteConfig } from './src/site.config.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -80,10 +78,12 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       remarkReadingTime,
-      remarkAddZoomable,
       remarkMath,
-      remarkGithubCards,
-      remarkArxivCards
+      remarkArxivCards,
+      // @ts-ignore
+      ...(integrationConfig.mediumZoom.enable
+        ? [[remarkAddZoomable, integrationConfig.mediumZoom.options]] // Wrap in array to ensure it's iterable
+        : [])
     ],
     rehypePlugins: [
       [rehypeKatex, {}],
@@ -94,9 +94,17 @@ export default defineConfig({
           target: '_blank',
           rel: ['nofollow, noopener, noreferrer']
         }
+      ],
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: { className: ['anchor'] },
+          content: { type: 'text', value: '#' }
+        }
       ]
     ],
-    // remarkRehype: { },
     // https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {
@@ -105,6 +113,7 @@ export default defineConfig({
       },
       transformers: [
         transformerNotationDiff(),
+        transformerNotationHighlight(),
         updateStyle(),
         addTitle(),
         addLanguage(),

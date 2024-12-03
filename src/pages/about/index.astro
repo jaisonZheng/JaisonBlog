@@ -3,7 +3,7 @@ import PageLayout from '@/layouts/CommonPage.astro'
 
 import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
-import Comment from '@/components/pages/Comment.astro'
+import { Comment } from '@/components/advanced'
 import { Button, Collapse, Spoiler, Timeline } from '@/components/user'
 
 const headings = [
@@ -35,7 +35,7 @@ const headings = [
 ]
 ---
 
-<PageLayout title='About' headings={headings} info='/about'>
+<PageLayout title='About' {headings} info='/about'>
   <p>Developer / Designer</p>
   <p>
     Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
@@ -235,7 +235,41 @@ const headings = [
     Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
     dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
   </p>
-  <Substats />
+  <Substats
+    stats={[
+      {
+        platform: 'GitHub',
+        icon: 'social.svg#mingcute-github-line',
+        link: 'https://github.com/cworld1',
+        text: 'followers',
+        api: 'github/cworld1'
+      },
+      {
+        platform: 'Telegram',
+        icon: 'social.svg#mingcute-telegram-line',
+        color: '#2ca5e0',
+        link: 'https://t.me/cworld0_cn',
+        text: 'subscribers',
+        api: 'telegram/cworld0_cn'
+      },
+      {
+        platform: 'Weibo',
+        icon: 'copyright-sponsor.svg#mingcute-weibo-line',
+        color: '#e71f19',
+        link: 'https://weibo.com/cworld0',
+        text: 'followers',
+        api: 'weibo/5501674056'
+      },
+      {
+        platform: 'Steam',
+        icon: 'social.svg#ri-steam-line',
+        color: '#50769d',
+        link: 'https://steamcommunity.com/id/cworld',
+        text: 'games',
+        api: 'steamgames/76561199021278120'
+      }
+    ]}
+  />
 
   {/* gossips */}
   <h2 id='gossips'>Gossips</h2>
@@ -246,7 +280,7 @@ const headings = [
   </Collapse>
 
   {/* about-blog */}
-  <h2 id='about-blog'>About Theme</h2>
+  <h2 id='about-blog'>About Blog</h2>
   <p>Website history:</p>
   <Timeline
     events={[

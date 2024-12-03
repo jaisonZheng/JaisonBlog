@@ -1,7 +1,7 @@
 import { h } from 'hastscript'
 import type { ShikiTransformer } from 'shiki'
 
-export { transformerNotationDiff } from './shikiOfficialTransformers'
+export { transformerNotationDiff, transformerNotationHighlight } from './shikiOfficialTransformers'
 
 function parseMetaString(str = '') {
   return Object.fromEntries(
@@ -21,13 +21,7 @@ export const updateStyle = (): ShikiTransformer => {
   return {
     name: 'shiki-transformer-update-style',
     pre(node) {
-      const container = h(
-        'pre',
-        {
-          class: 'code-container overflow-x-scroll'
-        },
-        node.children
-      )
+      const container = h('pre', node.children)
       node.children = [container]
       node.tagName = 'div'
     }
@@ -85,7 +79,7 @@ export const addLanguage = (): ShikiTransformer => {
         'span',
         {
           class:
-            'language transition-opacity duration-300 absolute top-3 right-3 text-sm text-muted-foreground'
+            'language transition-opacity duration-300 absolute top-3 right-3 text-sm text-muted-foreground select-none'
         },
         this.options.lang
       )

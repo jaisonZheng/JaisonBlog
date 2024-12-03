@@ -316,4 +316,4 @@ markdown 分段落是需要空一行的。
 
 ## 内嵌 Astro 组件
 
-See [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced-components) for details.
+See [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced) for details.

@@ -44,17 +44,22 @@ span.katex-display {
 
 /* Shiki */
 .astro-code {
-  background-color: transparent !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--tw-prose-pre-bg) !important;
 
   & pre {
-    border-radius: 0.5rem;
-    background-color: hsl(var(--primary-foreground));
-    margin: 0 !important;
+    margin: 0;
+    padding-inline: 0;
+    background: none;
+    overflow-x: scroll;
 
     & code {
       display: block;
       width: 100%;
       min-width: 100%;
+      min-height: 1.5rem;
       counter-reset: step;
       counter-increment: step 0;
       position: relative;
@@ -74,9 +79,27 @@ span.katex-display {
         width: 2rem;
         padding-right: 0.5rem;
       }
-      & .line:last-child:empty,
-      & .line:last-child:has(> span:empty:only-child) {
-        display: none;
+
+      & .line {
+        padding-inline-end: 0.75rem;
+        &::before {
+          position: sticky;
+          content: counter(step);
+          counter-increment: step;
+          color: hsl(var(--muted-foreground) / 0.6);
+          background-color: hsl(var(--muted) / var(--tw-bg-opacity, 1));
+          inset-inline-start: 0;
+          justify-content: end;
+          display: inline-flex;
+          width: 2rem;
+          padding-inline-end: 0.75rem;
+          box-sizing: content-box;
+          z-index: 2;
+        }
+        &:last-child:empty,
+        &:last-child:has(> span:empty:only-child) {
+          display: none;
+        }
       }
     }
   }
@@ -85,8 +108,11 @@ span.katex-display {
   &:has(code) {
     position: relative;
   }
-  &:has(div.title) pre {
-    padding-top: 2.5rem;
+  &:has(div.title) {
+    padding-top: 2rem;
+    & code::before {
+      top: calc(2rem + 0.8571429em);
+    }
   }
   & button.copy {
     & .success::before {
@@ -102,8 +128,8 @@ span.katex-display {
       padding: 0.5rem;
       margin-right: 0.5rem;
       border-radius: 0.25rem;
-      color: hsl(var(--muted-foreground));
-      background-color: hsl(var(--primary-foreground));
+      color: hsl(var(--muted-foreground) / var(--tw-text-opacity, 1));
+      background-color: hsl(var(--primary-foreground) / var(--tw-bg-opacity, 1));
       border: 1px solid hsl(var(--border));
     }
     &.copied {
@@ -116,7 +142,6 @@ span.katex-display {
       }
     }
   }
-
   &:hover {
     button.copy {
       opacity: 1;
@@ -126,32 +151,34 @@ span.katex-display {
     }
   }
 
+  & .highlighted,
   & .diff {
-    margin: 0 -15px;
-    padding: 0 15px;
-    min-width: calc(100% + 30px);
+    min-width: 100%;
     display: inline-block;
+  }
+  & .highlighted,
+  & .highlighted::before {
+    background-color: rgba(101, 117, 133, 0.32);
+  }
+
+  & .diff {
     &.remove {
       background-color: rgba(244, 63, 94, 0.16);
-      opacity: 0.7;
       &::before {
+        background-color: rgba(244, 63, 94, 0.16);
         content: '-';
-        color: var(--vp-code-line-diff-remove-symbol-color);
       }
     }
     &.add {
       background-color: rgba(16, 185, 129, 0.16);
       &::before {
+        background-color: rgba(16, 185, 129, 0.16);
         content: '+';
-        color: var(--vp-code-line-diff-add-symbol-color);
       }
     }
   }
 }
 .dark {
-  .astro-code pre {
-    background-color: var(--shiki-dark-bg);
-  }
   .astro-code pre span {
     color: var(--shiki-dark) !important;
   }

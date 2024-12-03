@@ -1,4 +1,4 @@
-import type { SocialLink } from './common'
+import type { ShareItem, SocialLink, TimelineEvent } from './common'
 
 export interface SiteConfig {
   author: string
@@ -18,22 +18,13 @@ export interface SiteConfig {
     pageSize: number
   }
 
-  links: {
-    applyTip: {
-      name: string
-      desc: string
-      url: string
-      avatar: string
-    }
-  }
-
   seo: {
     telegramChannel?: string
   }
 
   content: {
     externalLinkArrow: boolean
-    typographyProse: string
+    share: ShareItem[]
   }
 }
 
@@ -47,8 +38,30 @@ export interface FooterConfig {
 
 export interface IntegrationConfig {
   waline: {
+    enable: boolean
     server?: string
     emoji?: string[]
     additionalConfigs: Record<string, unknown>
+  }
+  links: {
+    logbook: TimelineEvent[]
+    applyTip: {
+      name: string
+      desc: string
+      url: string
+      avatar: string
+    }
+  }
+  typography: {
+    class: string
+  }
+  mediumZoom: {
+    enable: boolean
+    selector: string
+    options: Record<string, unknown>
+  }
+  quote: {
+    server: string
+    target: (data: unknown) => string
   }
 }

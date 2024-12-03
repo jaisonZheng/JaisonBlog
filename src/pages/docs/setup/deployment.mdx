@@ -28,6 +28,19 @@ This theme supports Vercel by default:
 
 </Steps>
 
+And vercel also support static method:
+
+```ts title="astro.config.mjs"
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+import vercelStatic from '@astrojs/vercel/static'; // [!code ++]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless() // [!code --]
+  adapter: vercelStatic(), // [!code ++]
+})
+```
+
 ### Static
 
 If you are deploying with Node.js locally, you need to install `@astrojs/node` first:
@@ -41,11 +54,11 @@ Then follow the comments in `astro.config.ts` and modify like:
 ```ts title="astro.config.ts"
 import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
 import node from '@astrojs/node' // [!code ++]
-// ...
+
 export default defineConfig({
+  //   ...
   adapter: vercelServerless() // [!code --]
   adapter: node({ mode: 'standalone' }) // [!code ++]
-  //   ...
 })
 ```
 

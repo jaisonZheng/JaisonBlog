@@ -6,7 +6,7 @@ const { class: className } = Astro.props
 ---
 
 {
-  integrationConfig.waline.server && (
+  integrationConfig.waline.enable && (
     <comment-component>
       <div id='waline' class={cn('not-prose', className)}>
         Comment seems to stuck. Try to refresh?✨
@@ -23,6 +23,8 @@ const { class: className } = Astro.props
 
   import '@waline/client/style'
 
+  const walineConfig = integrationConfig.waline
+
   class Comment extends HTMLElement {
     constructor() {
       super()
@@ -36,21 +38,21 @@ const { class: className } = Astro.props
         globalThis as unknown as { __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: boolean }
       ).__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false
 
-      const emoji = integrationConfig.waline.emoji?.map(
+      const emoji = walineConfig.emoji?.map(
         (preset) => `${siteConfig.npmCDN}/@waline/emojis@1.2.0/${preset}` as WalineEmojiPresets
       )
 
       walineInit({
         el: '#waline',
-        serverURL: integrationConfig.waline.server || '',
+        serverURL: walineConfig.server || '',
         emoji,
         reaction: ['/icons/heart-item.svg'],
-        ...integrationConfig.waline.additionalConfigs
+        ...walineConfig.additionalConfigs
       })
     }
   }
 
-  customElements.define('comment-component', Comment)
+  if (walineConfig.enable) customElements.define('comment-component', Comment)
 </script>
 
 <style>
@@ -59,18 +61,18 @@ const { class: className } = Astro.props
     /* Font size */
     --waline-font-size: 16px;
     /* Basic color */
-    --waline-white: hsl(var(--background) / var(--tw-bg-opacity));
+    --waline-white: hsl(var(--background), var(--tw-bg-opacity, 1));
     --waline-light-grey: #999;
     --waline-dark-grey: #666;
     /* Theme color */
-    --waline-theme-color: hsl(var(--foreground) / var(--tw-text-opacity));
-    --waline-active-color: hsl(var(--primary) / var(--tw-text-opacity));
+    --waline-theme-color: hsl(var(--foreground) / var(--tw-text-opacity, 1));
+    --waline-active-color: hsl(var(--primary) / var(--tw-text-opacity, 1));
     /* Layout */
-    --waline-color: hsl(var(--muted-foreground) / var(--tw-text-opacity));
-    --waline-bg-color: hsl(var(--primary-foreground) / var(--tw-bg-opacity));
-    --waline-bg-color-light: hsl(var(--input) / var(--tw-bg-opacity));
+    --waline-color: hsl(var(--muted-foreground) / var(--tw-text-opacity, 1));
+    --waline-bg-color: hsl(var(--muted) / var(--tw-text-opacity, 1));
+    --waline-bg-color-light: hsl(var(--input) / var(--tw-text-opacity, 1));
     --waline-bg-color-hover: #f0f0f0;
-    --waline-border-color: hsl(var(--border) / var(--tw-border-opacity));
+    --waline-border-color: hsl(var(--border) / var(--tw-border-opacity, 1));
     --waline-disable-bg-color: #f8f8f8;
     --waline-disable-color: #bbb;
     --waline-code-bg-color: #282c34;
@@ -80,7 +82,7 @@ const { class: className } = Astro.props
     --waline-avatar-size: 3.25rem;
     --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
     /* Badge */
-    --waline-badge-color: var(--primaryColor);
+    --waline-badge-color: hsl(var(--border) / var(--tw-border-opacity, 1));
     --waline-badge-font-size: 0.775em;
     /* Info */
     --waline-info-bg-color: var(--waline-bg-color-light);

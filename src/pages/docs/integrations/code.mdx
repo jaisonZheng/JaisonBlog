@@ -36,7 +36,7 @@ bun dev
 ```
 ````
 
-Like this:
+Renders:
 
 ```shell title="start.sh"
 #!/bin/bash
@@ -64,7 +64,7 @@ git push
 ```
 ````
 
-Like this:
+Renders:
 
 ```shell title="deploy.sh"
 #!/bin/bash
@@ -75,4 +75,46 @@ bun format # [!code ++]
 # No need for vercel or other ci/cd
 bun run build # [!code --]
 git push
+```
+
+## Show Hightlight
+
+````markdown
+<!-- You need to delete `\` during the use -->
+
+```ts
+const add = (a: number, b: number) => a + b
+const sub = (a: number, b: number) => a - b
+console.log(add(1, 2)) // [\!code highlight]
+```
+````
+
+Renders:
+
+```ts
+const add = (a: number, b: number) => a + b
+const sub = (a: number, b: number) => a - b
+console.log(add(1, 2)) // [!code highlight]
+```
+
+## Show Hightlight Multiple Lines
+
+You can also highlight multiple lines with a single comment:
+
+````markdown
+<!-- You need to delete `\` during the use -->
+
+```ts
+console.log('Highlighted') // [\!code highlight:2]
+console.log('Highlighted')
+console.log('Not highlighted')
+```
+````
+
+Renders:
+
+```ts
+console.log('Highlighted') // [!code highlight:2]
+console.log('Highlighted')
+console.log('Not highlighted')
 ```
