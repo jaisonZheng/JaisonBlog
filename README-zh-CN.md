@@ -2,24 +2,18 @@
 
 [English](./README.md) | [简体中文](./README-zh-CN.md)
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
-[![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
-[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
-[![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
 一个由 Astro 构建的轻便简洁、快速强大的博客主题。
+
+[![Vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
+[![Npm version](https://badge.fury.io/js/astro-pure.svg)](https://www.npmjs.com/package/astro-pure)
+[![Github license](https://img.shields.io/github/license/cworld1/astro-theme-pure)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 > [!CAUTION]
 > 🚧🚧🚧 我们目前正在做有关升级到 Astro v5 和使用 NPM 包方法的工作 🚧🚧🚧
 >
-> 新版本的已知问题：
+> 新版本的已知问题：a. 无法在Vercel上使用Node v22（[等待新版本](https://github.com/withastro/adapters/issues/471)）; b. 无法在Vercel上打包站点地图和页面查找资源（[等待修复](https://github.com/withastro/astro/issues/12663)）
 >
-> 1. 无法在Vercel上使用Node v22（[等待新版本](https://github.com/withastro/adapters/issues/471)）
-> 2. 无法在Vercel上打包站点地图和页面查找资源（[等待修复](https://github.com/withastro/astro/issues/12663)）
->
-> 如果你想有一个稳定的体验，请使用 [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4)，直到新版本对普通用户来说足够稳定，我们才会发布新版本。欢迎对未发布的新代码提供任何反馈。
->
-> （除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
+> 如果你想有一个稳定的体验，请使用 [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4)，直到新版本对普通用户来说足够稳定，我们才会发布新版本。欢迎对未发布的新代码提供任何反馈。（除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
 
 ![image](./.github/assets/header.webp)
 ![image](./.github/assets/body.webp)

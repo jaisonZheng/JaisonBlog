@@ -1,11 +1,10 @@
 # Astro Theme Pure
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
-[![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
-[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
-[![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
 A simple, fast and powerful blog theme built by Astro.
+
+[![Vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
+[![Npm version](https://badge.fury.io/js/astro-pure.svg)](https://www.npmjs.com/package/astro-pure)
+[![Github license](https://img.shields.io/github/license/cworld1/astro-theme-pure)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 ![img](https://github.com/user-attachments/assets/6c42b061-df7e-4696-a29b-bff07fe17d88)
 

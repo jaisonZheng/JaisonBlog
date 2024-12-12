@@ -2,24 +2,18 @@
 
 [English](./README.md) | [简体中文](./README-zh-CN.md)
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
-[![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
-[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
-[![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
 A simple, fast and powerful blog theme built by Astro.
+
+[![Vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
+[![Npm version](https://badge.fury.io/js/astro-pure.svg)](https://www.npmjs.com/package/astro-pure)
+[![Github license](https://img.shields.io/github/license/cworld1/astro-theme-pure)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 > [!CAUTION]
 > 🚧🚧🚧 We are currently on develop about upgrading to Astro v5 and developing npm package method 🚧🚧🚧
 >
-> Known issues for new version:
+> Known issues for new version: a. Cannot use Node v22 on Vercel ([waiting for new release](https://github.com/withastro/adapters/issues/471)); b. Cannot pack sitemap and pagefind resources on Vercel ([waiting for fixing](https://github.com/withastro/astro/issues/12663))
 >
-> 1. Cannot use Node v22 on Vercel ([waiting for new release](https://github.com/withastro/adapters/issues/471))
-> 2. Cannot pack sitemap and pagefind resources on Vercel ([waiting for fixing](https://github.com/withastro/astro/issues/12663))
->
-> If you want to have a stable experience, try [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4) instead. We'll release new version if the it is enough stable for users. And any feedback of newly unreleased code is also welcome.
->
-> （除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
+> If you want to have a stable experience, try [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4) instead. We'll release new version if the it is enough stable for users. And any feedback of newly unreleased code is also welcome.（除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
 
 ![image](./.github/assets/header.webp)
 ![image](./.github/assets/body.webp)
