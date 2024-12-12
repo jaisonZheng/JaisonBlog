@@ -4,9 +4,9 @@
 
 一个由 Astro 构建的轻便简洁、快速强大的博客主题。
 
-[![Vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
-[![Npm version](https://badge.fury.io/js/astro-pure.svg)](https://www.npmjs.com/package/astro-pure)
-[![Github license](https://img.shields.io/github/license/cworld1/astro-theme-pure)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
+[![GitHub deployments](https://img.shields.io/github/deployments/cworld1/astro-theme-pure/production?style=flat&logo=vercel&label=vercel)](https://astro-pure.js.org/)
+[![NPM Version](https://img.shields.io/npm/v/astro-pure?style=flat)](https://www.npmjs.com/package/astro-pure)
+[![GitHub License](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 > [!CAUTION]
 > 🚧🚧🚧 我们目前正在做有关升级到 Astro v5 和使用 NPM 包方法的工作 🚧🚧🚧
