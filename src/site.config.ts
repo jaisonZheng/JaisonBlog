@@ -76,13 +76,19 @@ export const theme: ThemeUserConfig = {
         title: 'Site Policy',
         link: '/terms/list',
         pos: 2 // position set to 2 will be appended to copyright line
-      }
+      },
+      {
+        title: '&copy;  2025 https://jaisons-blog.vercel.app - All Rights Reserved.',
+        link: '/terms/list',
+        pos: 2 // position set to 2 will be appended to copyright line
+      },
     ],
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { github: 'https://github.com/jaisonZheng/JaisonBlog' }
   },
+
 
   content: {
     externalLinksContent: ' ↗',
@@ -121,8 +127,8 @@ export const integ: IntegrationUserConfig = {
     // server: 'https://v1.hitokoto.cn/?c=i',
     // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
-    server: 'https://api.quotable.io/quotes/random?maxLength=60',
-    target: `(data) => data[0].content || 'Error'`
+    server: 'https://v1.hitokoto.cn/?c=i',
+    target: `(data) => data.hitokoto || 'Error'`
   },
   // UnoCSS typography
   // See: https://unocss.dev/presets/typography
@@ -146,7 +152,7 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://walinecommentsystem-d8q2gze4q-jaisonzhengs-projects.vercel.app',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
