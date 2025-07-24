@@ -14,7 +14,7 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif.webp}' // add more image formats if needed
+  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif,webp}' // 修复：移除 avif.webp，应该是 avif,webp
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
@@ -26,7 +26,7 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
     return async function (tree: Root) {
       const promises: Promise<void>[] = []
       visit(tree, 'image', (node) => {
-        if (node.url.startsWith('/images')) {
+        if (node.url.indexOf('/images') === 0) { // 替换 startsWith
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
           const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
@@ -54,43 +54,45 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
 }
 
 const GET = async (context: AstroGlobal) => {
-  const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
-  const siteUrl = context.site ?? new URL(import.meta.env.SITE)
+  try {
+    const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
+    const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
-  // 1. 先调用 rss() 函数，但不要立刻返回它
-  const rssResponse = await rss({
-    // Basic configs
-    trailingSlash: false,
-    xmlns: { h: 'http://www.w3.org/TR/html4/' },
-    stylesheet: '/scripts/pretty-feed-v3.xsl', // <-- 这部分是正确的
+    return rss({
+      // Basic configs
+      trailingSlash: false,
+      xmlns: { h: 'http://www.w3.org/TR/html4/' },
+      stylesheet: '/scripts/pretty-feed-v3.xsl',
 
-    // Contents
-    title: config.title,
-    description: config.description,
-    site: import.meta.env.SITE,
-    items: await Promise.all(
-      allPostsByDate.map(async (post) => ({
-        pubDate: post.data.publishDate,
-        link: `/blog/${post.id}`,
-        customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
-          <enclosure url="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />`,
-        content: await renderContent(post, siteUrl),
-        ...post.data
-      }))
-    )
-  })
+      // Contents
+      title: config.title,
+      description: config.description,
+      site: import.meta.env.SITE,
+      items: await Promise.all(
+        allPostsByDate.map(async (post) => {
+          // 修复heroImage处理逻辑
+          let heroImageSrc = '';
+          if (post.data.heroImage?.src) {
+            heroImageSrc = typeof post.data.heroImage.src === 'string' 
+              ? post.data.heroImage.src 
+              : post.data.heroImage.src.src;
+          }
 
-  // 2. 获取 rss() 生成的 XML 内容
-  const body = await rssResponse.text();
-
-  // 3. 创建一个新的 Response，并使用我们需要的正确响应头
-  return new Response(body, {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-      'X-Content-Type-Options': 'nosniff',
-    },
-  });
+          return {
+            pubDate: post.data.publishDate,
+            link: `/blog/${post.id}`,
+            customData: heroImageSrc ? `<h:img src="${heroImageSrc}" />
+              <enclosure url="${heroImageSrc}" />` : '',
+            content: await renderContent(post, siteUrl),
+            ...post.data
+          };
+        })
+      )
+    });
+  } catch (error) {
+    console.error('RSS generation error:', error);
+    throw error;
+  }
 }
 
 export { GET }
