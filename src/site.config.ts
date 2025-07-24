@@ -81,7 +81,7 @@ export const theme: ThemeUserConfig = {
         title: '&copy;  2025 https://jaisons-blog.vercel.app - All Rights Reserved.',
         link: '/terms/list',
         pos: 2 // position set to 2 will be appended to copyright line
-      },
+      }
     ],
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
@@ -96,7 +96,7 @@ export const theme: ThemeUserConfig = {
     blogPageSize: 8,
     externalLinkArrow: true, // show external link arrow
     // Currently support weibo, x, bluesky
-    share: ['weibo', 'x', 'bluesky']
+    share: ['weibo']
   }
 }
 
