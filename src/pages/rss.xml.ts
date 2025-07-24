@@ -26,7 +26,7 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
     return async function (tree: Root) {
       const promises: Promise<void>[] = []
       visit(tree, 'image', (node) => {
-        if (node.url.indexOf('/images') == 0) {
+        if (node.url.startsWith('/images')) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
           const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
