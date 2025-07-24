@@ -14,7 +14,7 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif,webp}' // 修复：移除 avif.webp，应该是 avif,webp
+  '/src/content/blog/**/*.{jpeg,jpg,png,gif}' // add more image formats if needed
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
@@ -26,7 +26,7 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
     return async function (tree: Root) {
       const promises: Promise<void>[] = []
       visit(tree, 'image', (node) => {
-        if (node.url.indexOf('/images') === 0) { // 替换 startsWith
+        if (node.url.indexOf('/images') == 0) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
           const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
@@ -54,45 +54,30 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
 }
 
 const GET = async (context: AstroGlobal) => {
-  try {
-    const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
-    const siteUrl = context.site ?? new URL(import.meta.env.SITE)
+  const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
+  const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
-    return rss({
-      // Basic configs
-      trailingSlash: false,
-      xmlns: { h: 'http://www.w3.org/TR/html4/' },
-      stylesheet: '/scripts/pretty-feed-v3.xsl',
+  return rss({
+    // Basic configs
+    trailingSlash: false,
+    xmlns: { h: 'http://www.w3.org/TR/html4/' },
+    stylesheet: '/scripts/pretty-feed-v3.xsl',
 
-      // Contents
-      title: config.title,
-      description: config.description,
-      site: import.meta.env.SITE,
-      items: await Promise.all(
-        allPostsByDate.map(async (post) => {
-          // 修复heroImage处理逻辑
-          let heroImageSrc = '';
-          if (post.data.heroImage?.src) {
-            heroImageSrc = typeof post.data.heroImage.src === 'string' 
-              ? post.data.heroImage.src 
-              : post.data.heroImage.src.src;
-          }
-
-          return {
-            pubDate: post.data.publishDate,
-            link: `/blog/${post.id}`,
-            customData: heroImageSrc ? `<h:img src="${heroImageSrc}" />
-              <enclosure url="${heroImageSrc}" />` : '',
-            content: await renderContent(post, siteUrl),
-            ...post.data
-          };
-        })
-      )
-    });
-  } catch (error) {
-    console.error('RSS generation error:', error);
-    throw error;
-  }
+    // Contents
+    title: config.title,
+    description: config.description,
+    site: import.meta.env.SITE,
+    items: await Promise.all(
+      allPostsByDate.map(async (post) => ({
+        pubDate: post.data.publishDate,
+        link: `/blog/${post.id}`,
+        customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
+          <enclosure url="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />`,
+        content: await renderContent(post, siteUrl),
+        ...post.data
+      }))
+    )
+  })
 }
 
 export { GET }
