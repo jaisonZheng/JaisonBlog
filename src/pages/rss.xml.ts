@@ -57,11 +57,12 @@ const GET = async (context: AstroGlobal) => {
   const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
   const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
-  return rss({
+  // 1. 先调用 rss() 函数，但不要立刻返回它
+  const rssResponse = await rss({
     // Basic configs
     trailingSlash: false,
     xmlns: { h: 'http://www.w3.org/TR/html4/' },
-    stylesheet: '/scripts/pretty-feed-v3.xsl',
+    stylesheet: '/scripts/pretty-feed-v3.xsl', // <-- 这部分是正确的
 
     // Contents
     title: config.title,
@@ -78,6 +79,18 @@ const GET = async (context: AstroGlobal) => {
       }))
     )
   })
+
+  // 2. 获取 rss() 生成的 XML 内容
+  const body = await rssResponse.text();
+
+  // 3. 创建一个新的 Response，并使用我们需要的正确响应头
+  return new Response(body, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
+    },
+  });
 }
 
 export { GET }
