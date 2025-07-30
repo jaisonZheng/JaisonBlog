@@ -1,3 +1,12 @@
+---
+title: How to simulate position on iphone?
+description: 怎么在ios系统中伪装定位？
+publishDate: 2025-07-30
+language: 中文
+tags: 
+    - CS
+---
+
 主要参考了
 [使用Xcode修改iOS设备定位](https://www.15tar.com/2023/10/03/simulate-location/)
 
