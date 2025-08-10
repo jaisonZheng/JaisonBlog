@@ -5,6 +5,8 @@ import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import remarkBreaks from 'remark-breaks'; // 引入插件
+import node from '@astrojs/node'
+
 
 // Others
 // import { visualizer } from 'rollup-plugin-visualizer'
@@ -33,13 +35,13 @@ export default defineConfig({
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
   // 1. Vercel (serverless)
-  adapter: vercel(),
-  output: 'server',
+  // adapter: vercel(),
+  // output: 'server',
   // 2. Vercel (static)
   // adapter: vercelStatic(),
   // 3. Local (standalone)
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
+  adapter: node({ mode: 'standalone' }),
+  output: 'server',
   // ---
 
   image: {
