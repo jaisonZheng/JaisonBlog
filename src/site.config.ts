@@ -62,6 +62,11 @@ export const theme: ThemeUserConfig = {
     links: [
       // Registration link
       {
+        title: '粤ICP备2025454001号-1',
+        link: 'https://beian.miit.gov.cn/#/Integrated/index',
+        style: 'text-sm' // Uno/TW CSS class
+      },
+      {
         title: 'Moe ICP 114514',
         link: 'https://icp.gov.moe/?keyword=114514',
         style: 'text-sm' // Uno/TW CSS class
