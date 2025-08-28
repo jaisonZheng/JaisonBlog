@@ -1,5 +1,5 @@
 ---
-import { Comment } from 'astro-pure/advanced'
+import Giscus from '@/components/Giscus.astro'
 import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
@@ -239,5 +239,5 @@ const headings = [
       >
     </li>
   </ul>
-  <Comment slot='bottom' />
+  <Giscus slot='bottom' />
 </PageLayout>

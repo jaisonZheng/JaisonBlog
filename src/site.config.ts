@@ -105,7 +105,7 @@ export const theme: ThemeUserConfig = {
   }
 }
 
-export const integ: IntegrationUserConfig = {
+export const integ: any = {
   // Links management
   // See: https://astro-pure.js.org/docs/integrations/links
   links: {
@@ -155,7 +155,7 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
+    enable: false,
     // Server service link
     server: 'https://walinecommentsystem.vercel.app',
     // Refer https://waline.js.org/en/guide/features/emoji.html
@@ -171,6 +171,24 @@ export const integ: IntegrationUserConfig = {
       },
       imageUploader: false
     }
+  },
+  // Giscus comment system
+  giscus: {
+    enable: true,
+    // Values from giscus.app
+    repo: 'jaisonZheng/JaisonBlog',
+    repoId: 'R_kgDOPRJsPA',
+    category: 'General',
+    categoryId: 'DIC_kwDOPRJsPM4Cushz',
+    // Options
+    mapping: 'title',
+    strict: '0',
+    reactionsEnabled: '1',
+    emitMetadata: '1',
+    inputPosition: 'top',
+    theme: 'preferred_color_scheme',
+    lang: 'zh-CN',
+    loading: 'lazy'
   }
 }
 

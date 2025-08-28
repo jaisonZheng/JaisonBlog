@@ -1,0 +1,28 @@
+---
+import config from '@/site-config'
+
+const className = (Astro.props as { class?: string }).class || ''
+const giscus = ((config as any).integ?.giscus || {}) as Record<string, string>
+---
+
+<div class={className}>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo={String(giscus.repo || '')}
+    data-repo-id={String(giscus.repoId || '')}
+    data-category={String(giscus.category || '')}
+    data-category-id={String(giscus.categoryId || '')}
+    data-mapping={String(giscus.mapping || 'pathname')}
+    data-strict={String(giscus.strict || '0')}
+    data-reactions-enabled={String(giscus.reactionsEnabled || '1')}
+    data-emit-metadata={String(giscus.emitMetadata || '0')}
+    data-input-position={String(giscus.inputPosition || 'top')}
+    data-theme={String(giscus.theme || 'preferred_color_scheme')}
+    data-lang={String(giscus.lang || 'zh-CN')}
+    data-loading={String(giscus.loading || 'lazy')}
+    crossorigin="anonymous"
+    async
+  />
+  <noscript>Giscus requires JavaScript to load.</noscript>
+</div>
+
