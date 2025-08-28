@@ -5,36 +5,71 @@ const className = (Astro.props as { class?: string }).class || ''
 const giscus = ((config as any).integ?.giscus || {}) as Record<string, string>
 ---
 
-<div class={className}>
-  <script
-    src="https://giscus.app/client.js"
-    data-repo={String(giscus.repo || '')}
-    data-repo-id={String(giscus.repoId || '')}
-    data-category={String(giscus.category || '')}
-    data-category-id={String(giscus.categoryId || '')}
-    data-mapping={String(giscus.mapping || 'pathname')}
-    data-strict={String(giscus.strict || '0')}
-    data-reactions-enabled={String(giscus.reactionsEnabled || '1')}
-    data-emit-metadata={String(giscus.emitMetadata || '0')}
-    data-input-position={String(giscus.inputPosition || 'top')}
-    data-theme={String(giscus.theme || 'preferred_color_scheme')}
-    data-lang={String(giscus.lang || 'zh-CN')}
-    data-loading={String(giscus.loading || 'lazy')}
-    crossorigin="anonymous"
-    async
-  />
+<div
+  class={className}
+  id="giscus-container"
+  data-repo={String(giscus.repo || '')}
+  data-repo-id={String(giscus.repoId || '')}
+  data-category={String(giscus.category || '')}
+  data-category-id={String(giscus.categoryId || '')}
+  data-mapping={String(giscus.mapping || 'pathname')}
+  data-strict={String(giscus.strict || '0')}
+  data-reactions-enabled={String(giscus.reactionsEnabled || '1')}
+  data-emit-metadata={String(giscus.emitMetadata || '0')}
+  data-input-position={String(giscus.inputPosition || 'top')}
+  data-lang={String(giscus.lang || 'zh-CN')}
+  data-loading={String(giscus.loading || 'lazy')}
+>
   <noscript>Giscus requires JavaScript to load.</noscript>
+  <!-- giscus iframe will be injected here -->
+  <div class="giscus-placeholder">Loading comments…</div>
+  
+  <script is:inline>
+    // Create and inject the giscus script with the correct initial theme
+    function giscusResolveTheme() {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    }
+
+    const injectGiscus = () => {
+      const container = document.getElementById('giscus-container')
+      if (!container) return
+
+      // Avoid duplicate injection on soft navigations
+      if (container.querySelector('iframe.giscus-frame')) return
+
+      const s = document.createElement('script')
+      s.src = 'https://giscus.app/client.js'
+      s.setAttribute('data-repo', container.getAttribute('data-repo') || '')
+      s.setAttribute('data-repo-id', container.getAttribute('data-repo-id') || '')
+      s.setAttribute('data-category', container.getAttribute('data-category') || '')
+      s.setAttribute('data-category-id', container.getAttribute('data-category-id') || '')
+      s.setAttribute('data-mapping', container.getAttribute('data-mapping') || 'pathname')
+      s.setAttribute('data-strict', container.getAttribute('data-strict') || '0')
+      s.setAttribute('data-reactions-enabled', container.getAttribute('data-reactions-enabled') || '1')
+      s.setAttribute('data-emit-metadata', container.getAttribute('data-emit-metadata') || '0')
+      s.setAttribute('data-input-position', container.getAttribute('data-input-position') || 'top')
+      // Use site theme instead of OS preference on first load
+      s.setAttribute('data-theme', giscusResolveTheme())
+      s.setAttribute('data-lang', container.getAttribute('data-lang') || 'zh-CN')
+      s.setAttribute('data-loading', container.getAttribute('data-loading') || 'lazy')
+      s.crossOrigin = 'anonymous'
+      s.async = true
+
+      container.appendChild(s)
+    }
+
+    injectGiscus()
+  </script>
 </div>
 
 <script is:inline>
   // Minimal, precise sync: observe <html> class for 'dark'
-  const resolveTheme = () => (document.documentElement.classList.contains('dark') ? 'dark' : 'light')
 
   const postTheme = () => {
     const iframe = document.querySelector('iframe.giscus-frame')
     if (!iframe || !iframe.contentWindow) return
     iframe.contentWindow.postMessage(
-      { giscus: { setConfig: { theme: resolveTheme() } } },
+      { giscus: { setConfig: { theme: typeof giscusResolveTheme === 'function' ? giscusResolveTheme() : (document.documentElement.classList.contains('dark') ? 'dark' : 'light') } } },
       'https://giscus.app'
     )
   }
