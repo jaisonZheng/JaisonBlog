@@ -26,3 +26,29 @@ const giscus = ((config as any).integ?.giscus || {}) as Record<string, string>
   <noscript>Giscus requires JavaScript to load.</noscript>
 </div>
 
+<script is:inline>
+  // Minimal, precise sync: observe <html> class for 'dark'
+  const resolveTheme = () => (document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+
+  const postTheme = () => {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (!iframe || !iframe.contentWindow) return
+    iframe.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: resolveTheme() } } },
+      'https://giscus.app'
+    )
+  }
+
+  // Ensure giscus iframe exists before posting
+  const waitAndPost = () => {
+    const iframe = document.querySelector('iframe.giscus-frame')
+    if (iframe) postTheme()
+    else setTimeout(waitAndPost, 200)
+  }
+  waitAndPost()
+
+  // Observe only class changes on <html>
+  const mo = new MutationObserver(postTheme)
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+</script>
+
