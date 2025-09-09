@@ -8,7 +8,7 @@ language: 中文
 > 尽管Python我会一些，线性代数我会一些，但是用Python + 矩阵运算来解决机器学习中的问题我还是第一次尝试。
 > 我决定把我的pseudocode分享给大家，没有提供pseudocode就提供了一些hints如果完全没有头绪可以先按照这个做
 > 注意，这并不是答案，如果需要答案，可以访问以下链接。
-[PS229答案](https://github.com/maxim5/cs229-2018-autumn/tree/main/problem-sets/PS1"点击跳转Github")
+[PS229答案](https://github.com/maxim5/cs229-2018-autumn/tree/main/problem-sets/PS1 "点击跳转Github")
 ## Problem 1 Logistic Regression and GDA
 ### 1(b)Pseudocode and Explanation
 #### Pseudocode:
