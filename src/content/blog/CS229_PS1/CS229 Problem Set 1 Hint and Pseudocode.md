@@ -1,5 +1,5 @@
 ---
-title: Problem Set 1 Hint and Pseudocode
+title: CS229 Problem Set 1 Hint and Pseudocode
 description: CS229问题集1提示
 publishDate: 2025-09-09
 language: 中文
