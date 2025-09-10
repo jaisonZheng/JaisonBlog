@@ -1,7 +1,7 @@
 ---
 title: 花更多的时间做自己想做的事
 description: 看来微醺是一种不错的状态，一种狄奥尼修斯的状态。
-publishDate: 2025-09-10
+publishDate: 2025-04-22
 language: 中文
 tags:
   - 随笔

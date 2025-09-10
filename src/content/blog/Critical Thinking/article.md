@@ -1,7 +1,7 @@
 ---
 title: 我发现我拥有批判性思考的时间比我有npy的时间还短
 description: 现在看来，我似乎又“泯然众人”了？
-publishDate: 2025-10-23
+publishDate: 2024-10-23
 language: 中文
 tags:
   - 随笔
