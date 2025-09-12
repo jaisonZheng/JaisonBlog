@@ -325,10 +325,14 @@ $$
 min_{\gamma,w,b} \quad& \frac{1}{2}\parallel w\parallel ^2 \\
 s.t. \quad &y^{(i)}(w^Tx^{(i)}+b) \geq 1,\quad i=1,...,m\\
 \end{aligned}
-$$我们可以构建其拉格朗日函数（惩罚函数）
+$$
+
+我们可以构建其拉格朗日函数（惩罚函数）
 $$
 L(w,b,\alpha )=\frac{1}{2}\parallel w\parallel ^2 - \sum^m_{i=1}\alpha_i [y^{(i)}(w^Tx^{(i)}+b)-1]  \qquad\text{(8)}
-$$注意这里的拉格朗日乘数中只有“$\alpha_i$” 而没有 “$\beta_i$”，因为这时候问题还只有不等式约束条件。
+$$
+
+注意这里的拉格朗日乘数中只有“$\alpha_i$” 而没有 “$\beta_i$”，因为这时候问题还只有不等式约束条件。
 
 接下来咱们找一下这个问题的对偶性形式。另上面的函数关于 $w$ 和 $b$ 的导数为零，我们得到：
 $$\begin{gather*}
@@ -338,8 +342,10 @@ w = \sum_{i=1}^{m}\alpha_i y^{(i)}x^{(i)} \qquad\text{(9)} \\
 
 \frac{\partial}{\partial b}L(w,b,\alpha) = \sum_{i=1}^{m}\alpha_i y^{(i)} = 0 \qquad\text{(10)}
 \end{gather*}$$
+
 代入（8）得到
-$$L(w,b,\alpha)=\sum^m_{i=1}\alpha_i-\frac12 \sum^m_{i,j=1} y^{(i)}y^{(j)}\alpha_i\alpha_j(x^{(i)})^Tx^{(j)}$$
+$$L(w,b,\alpha)=\sum^m_{i=1}\alpha_i-\frac12 \sum^m_{i,j=1} y^{(i)}y^{(j)}\alpha_i\alpha_j(x^{(i)})^Tx^{(j)}
+$$
 我们得到以下对偶优化问题：
 $$
 \begin{aligned}
@@ -390,6 +396,9 @@ pass
 
 在上面推导了这么一大坨以后，我们得到了支持向量机的二维简化图像表示。我当时想到的第一个问题就是，刚好在线上的支持向量会不会太少了？然后就是，异常值咋办？
 
+![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note3f5.png)
+%%由图中可以看到，一个异常值就导致我们的分类边界大大偏移，这显然是不好的%%
+
 这一部分notes解决了这一问题。我们可以通过给越界数据提供惩罚系数，从而降低对异常值的敏感度，并将模型泛化至不可区分的情况。
 
 看看下面这个重构后的目标函数，C就是所谓的惩罚系数，这个目标函数也有其对偶优化问题。
@@ -414,11 +423,15 @@ $$
 &\qquad\} \\
 &\}
 \end{aligned}
-$$在算法内层的循环中，我们逐个对变量进行优化。![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note3f6.png)
+$$
+
+在算法内层的循环中，我们逐个对变量进行优化。![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note3f6.png)
 由于我们每次只选择一个变量进行优化，所以每次移动的方向都是平行于坐标轴的。
 
 但注意，我们的SVM中，有一个约束条件：
-$$\sum^m_{i=1}\alpha_iy^{(i)}=0$$
+$$
+\sum^m_{i=1}\alpha_iy^{(i)}=0
+$$
 在该条件限制下，我们无法每次只优化一个$\alpha_i$而保持其他$\alpha$不变。SMO提供的解决方案是，每次更改两个向量。
 
 具体怎么更改呢？
