@@ -335,16 +335,19 @@ $$
 注意这里的拉格朗日乘数中只有“$\alpha_i$” 而没有 “$\beta_i$”，因为这时候问题还只有不等式约束条件。
 
 接下来咱们找一下这个问题的对偶性形式。另上面的函数关于 $w$ 和 $b$ 的导数为零，我们得到：
-$$\begin{gather*}
+$$
+\begin{gather*}
 \nabla_w L(w,b,\alpha) = w - \sum_{i=1}^{m}\alpha_i y^{(i)}x^{(i)} = 0 \\
 
 w = \sum_{i=1}^{m}\alpha_i y^{(i)}x^{(i)} \qquad\text{(9)} \\
 
 \frac{\partial}{\partial b}L(w,b,\alpha) = \sum_{i=1}^{m}\alpha_i y^{(i)} = 0 \qquad\text{(10)}
-\end{gather*}$$
+\end{gather*}
+$$
 
 代入（8）得到
-$$L(w,b,\alpha)=\sum^m_{i=1}\alpha_i-\frac12 \sum^m_{i,j=1} y^{(i)}y^{(j)}\alpha_i\alpha_j(x^{(i)})^Tx^{(j)}
+$$
+L(w,b,\alpha)=\sum^m_{i=1}\alpha_i-\frac12 \sum^m_{i,j=1} y^{(i)}y^{(j)}\alpha_i\alpha_j(x^{(i)})^Tx^{(j)}
 $$
 我们得到以下对偶优化问题：
 $$
