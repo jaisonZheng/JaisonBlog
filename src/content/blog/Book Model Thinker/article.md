@@ -1,7 +1,7 @@
 ---
 title: 书籍反编译 · The Model Thinker
 description: 书籍反编译系列·《模型思维》精华内容总结
-publishDate: 2025-08-21
+publishDate: 2025-09-14
 language: 中文
 tags:
   - Reading
