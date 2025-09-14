@@ -3,7 +3,7 @@ title: 书籍反编译 · The Model Thinker
 description: 《模型思维》精华内容总结
 publishDate: 2025-09-13
 language: 中文
-heroImage: { src: './cover.jpg', color: '#0B3454' }
+heroImage: { src: './cover.png', color: '#0B3454' }
 tags:
   - Reading
   - 书
