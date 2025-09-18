@@ -46,7 +46,8 @@ $$
 $$
 p(y|x,S)=\int_\theta p(y|x,\theta)p(\theta|S)d\theta\qquad (2)
 $$
-单点估计$$
+单点估计
+$$
 \theta_{MAP}=\arg \max_\theta \prod_{i=1}^{m} p(y^{(i)}|x^{(i)})p(\theta) \quad (3)
 $$
 计算后验分布相当于根据$p(\theta|S)$来判断每个$\theta$的权重，从而在预测当中按照这个权重来综合各个$\theta$的预测。
