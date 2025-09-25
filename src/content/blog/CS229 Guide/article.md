@@ -31,11 +31,18 @@ pass
 #### Problem Set及其答案：
 [Github-maxim5](https://github.com/maxim5/cs229-2018-autumn/tree/main)
 #### 对Problem Set的提示和总结
+[CS229作业生存指北 0](https://jaison.ink/blog/cs229_problem_set_0/cs229作业生存指北0/)
 [Problem Set 1 Hints and Pseudocode](https://jaison.ink/blog/cs229_ps1/cs229-problem-set-1-hint-and-pseudocode)
+[CS229 Problem Set 2 Hint and Code](https://jaison.ink/blog/cs229-problem-set-2-hint-and-codemd/article)
+
 ```
 持续更新当中。
 ```
-#### 对notes的通俗版解说
+#### 对notes的通俗版解读
+[CS229 notes3 Support Vector Machines 解读](https://jaison.ink/blog/cs229-notes3-svm/article)
+[CS229 notes5 Regularization and Model Selection 解读](https://jaison.ink/blog/cs229-notes5-regularization-and-model-selection/article)
+[CS229 Advice on Applying Machine Learning 解读](https://jaison.ink/blog/cs229-cs229-advice-on-applying-machine-learning/article)
+[CS229 notes6 Online Learning and the Perceptron Algorithm 解读](https://jaison.ink/blog/cs229-notes6-online-learning-and-the-perceptron-algorithm/article)
 
 ```
 持续更新当中。
