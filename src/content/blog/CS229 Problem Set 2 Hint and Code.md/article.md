@@ -65,7 +65,9 @@ $$
   $$ 
   4、向量对向量求导 (雅可比矩阵)
   $$ 
-  \nabla_{\boldsymbol{x}} (\boldsymbol{A}\boldsymbol{x}) = \boldsymbol{A}^T $$ *(注意：这是分母布局下的结果。在分子布局下，结果为 $\boldsymbol{A}$) 
+  \nabla_{\boldsymbol{x}} (\boldsymbol{A}\boldsymbol{x}) = \boldsymbol{A}^T 
+  $$ 
+  *(注意：这是分母布局下的结果。在分子布局下，结果为 $\boldsymbol{A}$) 
   
   5、L2范数的平方对向量求导 
   $$ \nabla_{\boldsymbol{x}} ||\boldsymbol{x}||_2^2 = \nabla_{\boldsymbol{x}} (\boldsymbol{x}^T\boldsymbol{x}) = 2\boldsymbol{x} $$
@@ -136,7 +138,7 @@ FileNotFoundError: [Errno 2] No such file or directory: '../data/ds5_train.csv'
 numpy array可以用`numpy.zeros((row, col))`来创建。
 
 ### (a)Code
-```Python
+```python
 def get_words(message : str):
     # *** START CODE HERE ***
     words = message.split(' ')
@@ -220,7 +222,7 @@ def transform_text(messages, word_dictionary : dict):
 	$$
 	但是由于$y=1$和$y=0$时公式的分母一样，所以只用计算分子，此外，要取log防止underflow。（不是连乘完之后取log，而是取log之后连加
 ### (b)Code
-```Python
+```python
 def fit_naive_bayes_model(matrix : list, labels : np.ndarray):
     """
         labels: The binary (0 or 1) labels for that training data
@@ -311,19 +313,8 @@ def predict_from_naive_bayes_model(model, matrix):
 
 ### (c)Code
 
-```Python
+```python
 def get_top_five_naive_bayes_words(model, dictionary):
-    """Compute the top five words that are most indicative of the spam (i.e positive) class.
-
-    Ues the metric given in 6c as a measure of how indicative a word is.
-    Return the words in sorted form, with the most indicative word first.
-
-    Args:
-        model: The Naive Bayes model returned from fit_naive_bayes_model
-        dictionary: A mapping of word to integer ids
-
-    Returns: The top five most indicative words in sorted order with the most indicative first
-    """
     # *** START CODE HERE ***
     # 先将model中有的参数取出来
     phik_y1 : list
@@ -346,27 +337,8 @@ def get_top_five_naive_bayes_words(model, dictionary):
 ```
 
 ### (d)Code
-```Python
+```python
 def compute_best_svm_radius(train_matrix, train_labels, val_matrix, val_labels, radius_to_consider):
-    """Compute the optimal SVM radius using the provided training and evaluation datasets.
-
-    You should only consider radius values within the radius_to_consider list.
-    You should use accuracy as a metric for comparing the different radius values.
-
-    Args:
-        train_matrix: The word counts for the training data
-        train_labels: The spma or not spam labels for the training data
-        val_matrix: The word counts for the validation data
-        val_labels: The spam or not spam labels for the validation data
-        radius_to_consider: The radius values to consider
-    
-    Returns:
-        The best radius which maximizes SVM accuracy.
-    可用函数：
-        train_and_predict_svm
-        svm_train
-        svm_predict
-    """
     # *** START CODE HERE ***
     radius_point = dict()
     for radius in radius_to_consider:
