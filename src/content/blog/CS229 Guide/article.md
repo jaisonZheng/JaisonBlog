@@ -1,7 +1,7 @@
 ---
 title: CS229学习指引
 description: Stanford CS229导学文档
-publishDate: 2025-08-23
+publishDate: 2025-09-25
 language: 中文
 tags:
   - 更新中

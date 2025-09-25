@@ -52,13 +52,20 @@ argmax里面的东西取负即可得argmin
 ### 矩阵求导小结
 
 1、标量对向量求导 (线性)  
-$$ \nabla_{\boldsymbol{x}} (\boldsymbol{a}^T \boldsymbol{x}) = \boldsymbol{a} $$ 2、标量对向量求导 (二次型)
+$$ 
+\nabla_{\boldsymbol{x}} (\boldsymbol{a}^T \boldsymbol{x}) = \boldsymbol{a} 
+$$ 
+2、标量对向量求导 (二次型)
  $$ \nabla_{\boldsymbol{x}} (\boldsymbol{x}^T \boldsymbol{A} \boldsymbol{x}) = (\boldsymbol{A} + \boldsymbol{A}^T)\boldsymbol{x} 
- $$*（注意：假如这里A是对称矩阵，那么可以化简为$2\boldsymbol{Ax}$）*
+ $$
+ *（注意：假如这里A是对称矩阵，那么可以化简为$2\boldsymbol{Ax}$）*
  其次，这里的公式为什么是这样，其实是挺显然的，画一个二次型的相乘矩阵就会发现，$x_ix_j$求导后的系数就是$a_{ij} + a_{ji}$。
  3、标量对向量求导 (二次型，A为对称矩阵) 
-  $$ \nabla_{\boldsymbol{x}} (\boldsymbol{x}^T \boldsymbol{A} \boldsymbol{x}) = 2\boldsymbol{A}\boldsymbol{x} $$ 4、向量对向量求导 (雅可比矩阵)
-  $$ \nabla_{\boldsymbol{x}} (\boldsymbol{A}\boldsymbol{x}) = \boldsymbol{A}^T $$ *(注意：这是分母布局下的结果。在分子布局下，结果为 $\boldsymbol{A}$) 
+  $$ \nabla_{\boldsymbol{x}} (\boldsymbol{x}^T \boldsymbol{A} \boldsymbol{x}) = 2\boldsymbol{A}\boldsymbol{x} 
+  $$ 
+  4、向量对向量求导 (雅可比矩阵)
+  $$ 
+  \nabla_{\boldsymbol{x}} (\boldsymbol{A}\boldsymbol{x}) = \boldsymbol{A}^T $$ *(注意：这是分母布局下的结果。在分子布局下，结果为 $\boldsymbol{A}$) 
   
   5、L2范数的平方对向量求导 
   $$ \nabla_{\boldsymbol{x}} ||\boldsymbol{x}||_2^2 = \nabla_{\boldsymbol{x}} (\boldsymbol{x}^T\boldsymbol{x}) = 2\boldsymbol{x} $$
