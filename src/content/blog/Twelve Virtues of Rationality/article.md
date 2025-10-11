@@ -7,7 +7,8 @@ tags:
   - 转载
   - 理性之道
 ---
-> 本文转载并翻译自([Twelve Virtues of Rationality](https://www.lesswrong.com/posts/7ZqGiPHTpiDMwqMN2/twelve-virtues-of-rationality))。理性在上，如有任何对Eliezer Yudkowsky版权的侵犯，请评论或发邮件给我，我将立即下架本文。
+> 本文转载并翻译自([Twelve Virtues of Rationality](https://www.lesswrong.com/posts/7ZqGiPHTpiDMwqMN2/twelve-virtues-of-rationality))。
+> 理性在上，如有任何对Eliezer Yudkowsky版权的侵犯，请评论或发邮件给我，我将立即下架本文。
 > 愿你我从此诗中悟道。
 
 by Eliezer Yudkowsky
