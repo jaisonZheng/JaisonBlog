@@ -1,0 +1,239 @@
+ 
+=========================================
+Deployment started at Sun Sep 14 12:09:27 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+▶ Astro collects anonymous usage data.
+  This information helps us improve Astro.
+  Run "astro telemetry disable" to opt-out.
+  https://astro.build/telemetry
+
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 12:09:54 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 12:10:05 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 12:10:17 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 12:13:57 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 05:02:41 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+From gitee.com:JaisonZheng/JaisonBlog
+   035ce98..f4836fd  main       -> origin/main
+Updating 035ce98..f4836fd
+Fast-forward
+ .../Pasted image 20250914165623.png                | Bin 0 -> 3897714 bytes
+ src/content/blog/Book Model Thinker/article.md     |  26 +++++++++++----------
+ src/content/blog/Book Model Thinker/cover.png      | Bin 0 -> 3897714 bytes
+ 3 files changed, 14 insertions(+), 12 deletions(-)
+ create mode 100644 src/content/blog/Book Model Thinker/Pasted image 20250914165623.png
+ create mode 100644 src/content/blog/Book Model Thinker/cover.png
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 05:13:28 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+From gitee.com:JaisonZheng/JaisonBlog
+   f4836fd..a806df2  main       -> origin/main
+Updating f4836fd..a806df2
+Fast-forward
+ src/content/blog/Book Model Thinker/article.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 05:20:52 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39m 
+=========================================
+Deployment started at Sun Sep 14 05:22:27 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39mEPERM: operation not permitted, read
+      fd: 0,
+ syscall: "read",
+   errno: -1,
+    code: "EPERM"
+
+
+Bun v1.2.21 (Linux x64)
+error: script "build" exited with code 1
+Restarting jaisonblog application...
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [jaisonblog](ids: [ 0 ])
+[PM2] [jaisonblog](0) ✓
+┌────┬─────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ jaisonblog          │ default     │ 4.0.6   │ fork    │ 3393485  │ 0s     │ 26   │ online    │ 0%       │ 21.5mb   │ root     │ disabled │
+│ 3  │ webhook-listener    │ default     │ 4.0.6   │ fork    │ 3391720  │ 5m     │ 1    │ online    │ 0%       │ 58.9mb   │ root     │ disabled │
+└────┴─────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Deployment finished at Sun Sep 14 05:25:38 PM CST 2025
+ 
+=========================================
+Deployment started at Sun Sep 14 05:25:53 PM CST 2025
+=========================================
+Pulling latest code from Gitee...
+Already up to date.
+Building Astro project...
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+To continue, Astro requires the following dependency to be installed: @astrojs/check.
+
+  Astro will run the following command:
+  If you skip this step, you can always run it yourself later
+
+ ╭──────────────────────────────────╮
+ │ npm i @astrojs/check typescript  │
+ ╰──────────────────────────────────╯
+
+[?25l[2K[1G[36m?[39m [1mContinue?[22m [90m›[39m [90m(Y/n)[39mEPERM: operation not permitted, read
+      fd: 0,
+ syscall: "read",
+   errno: -1,
+    code: "EPERM"
+
+
+Bun v1.2.21 (Linux x64)
+error: script "build" exited with code 1
+Restarting jaisonblog application...
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [jaisonblog](ids: [ 0 ])
+[PM2] [jaisonblog](0) ✓
+┌────┬─────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ jaisonblog          │ default     │ 4.0.6   │ fork    │ 3393715  │ 0s     │ 27   │ online    │ 0%       │ 21.0mb   │ root     │ disabled │
+│ 3  │ webhook-listener    │ default     │ 4.0.6   │ fork    │ 3391720  │ 5m     │ 1    │ online    │ 0%       │ 58.9mb   │ root     │ disabled │
+└────┴─────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Deployment finished at Sun Sep 14 05:26:11 PM CST 2025
