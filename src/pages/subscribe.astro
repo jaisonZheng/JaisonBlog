@@ -1,0 +1,219 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
+import config from '@/site-config'
+
+const allPosts = sortMDByDate(await getBlogCollection())
+const recentPosts = allPosts.slice(0, 5)
+const siteUrl = Astro.site?.href || 'https://jaison.ink'
+const rssUrl = new URL('/rss.xml', siteUrl).href
+
+const meta = {
+  title: 'RSS 订阅',
+  description: '订阅我们的 RSS Feed，第一时间获取最新文章更新',
+}
+---
+
+<BaseLayout {meta}>
+  <main class="container mx-auto max-w-4xl px-4 py-12">
+    <!-- Header Section -->
+    <div class="mb-12 text-center">
+      <div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+        <svg
+          class="h-10 w-10 text-primary"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"
+          ></path>
+        </svg>
+      </div>
+      <h1 class="mb-4 text-4xl font-bold">订阅我们的 RSS Feed</h1>
+      <p class="text-lg text-muted-foreground">
+        通过 RSS 阅读器订阅，第一时间获取最新文章更新
+      </p>
+    </div>
+
+    <!-- What is RSS Section -->
+    <div class="mb-10 rounded-lg border bg-card p-6">
+      <h2 class="mb-3 text-xl font-semibold">什么是 RSS？</h2>
+      <p class="mb-4 text-muted-foreground">
+        RSS（Really Simple Syndication）是一种便捷的内容订阅方式。通过 RSS
+        阅读器，您可以在一个地方集中阅读所有您喜欢网站的最新内容，无需逐一访问每个网站。
+      </p>
+    </div>
+
+    <!-- Subscribe Section -->
+    <div class="mb-10 rounded-lg border bg-card p-6">
+      <h2 class="mb-4 text-xl font-semibold">如何订阅？</h2>
+      
+      <!-- RSS URL Copy Box -->
+      <div class="mb-6">
+        <label class="mb-2 block text-sm font-medium">RSS Feed 地址：</label>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            readonly
+            value={rssUrl}
+            id="rss-url"
+            class="flex-1 rounded-md border bg-background px-4 py-2 font-mono text-sm"
+          />
+          <button
+            id="copy-btn"
+            class="rounded-md bg-primary px-6 py-2 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            复制
+          </button>
+        </div>
+        <p class="mt-2 text-sm text-muted-foreground">
+          复制上面的地址，粘贴到您的 RSS 阅读器中即可订阅
+        </p>
+      </div>
+
+      <!-- Quick Subscribe Buttons -->
+      <div class="mb-4">
+        <p class="mb-3 text-sm font-medium">或使用以下阅读器快速订阅：</p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href={`https://feedly.com/i/subscription/feed/${encodeURIComponent(rssUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.003 23.274L0 11.271 3.196 8.075 12.003 16.882 20.809 8.075 24 11.271z"></path>
+            </svg>
+            Feedly
+          </a>
+          
+          <a
+            href={`https://www.inoreader.com/feed/${encodeURIComponent(rssUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 3.6c4.635 0 8.4 3.765 8.4 8.4s-3.765 8.4-8.4 8.4-8.4-3.765-8.4-8.4 3.765-8.4 8.4-8.4z"></path>
+            </svg>
+            Inoreader
+          </a>
+
+          <a
+            href={`https://theoldreader.com/feeds/subscribe?url=${encodeURIComponent(rssUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+            </svg>
+            The Old Reader
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popular RSS Readers -->
+    <div class="mb-10 rounded-lg border bg-card p-6">
+      <h2 class="mb-4 text-xl font-semibold">推荐的 RSS 阅读器</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-md border p-4">
+          <h3 class="mb-2 font-semibold">桌面端</h3>
+          <ul class="space-y-1 text-sm text-muted-foreground">
+            <li>• NetNewsWire (macOS/iOS)</li>
+            <li>• Reeder (macOS/iOS)</li>
+            <li>• Thunderbird (Windows/macOS/Linux)</li>
+          </ul>
+        </div>
+        <div class="rounded-md border p-4">
+          <h3 class="mb-2 font-semibold">在线服务</h3>
+          <ul class="space-y-1 text-sm text-muted-foreground">
+            <li>• Feedly</li>
+            <li>• Inoreader</li>
+            <li>• The Old Reader</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Posts Preview -->
+    <div class="rounded-lg border bg-card p-6">
+      <h2 class="mb-6 text-xl font-semibold">最新文章</h2>
+      <div class="space-y-4">
+        {
+          recentPosts.map((post) => (
+            <article class="border-b pb-4 last:border-b-0 last:pb-0">
+              <a href={`/blog/${post.id}`} class="group block">
+                <h3 class="mb-2 font-medium transition-colors group-hover:text-primary">
+                  {post.data.title}
+                </h3>
+                {post.data.description && (
+                  <p class="mb-2 text-sm text-muted-foreground line-clamp-2">
+                    {post.data.description}
+                  </p>
+                )}
+                <time class="text-xs text-muted-foreground">
+                  {post.data.publishDate.toLocaleDateString('zh-CN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+      <div class="mt-6 text-center">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+        >
+          查看所有文章
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Copy to Clipboard Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyBtn = document.getElementById('copy-btn')
+      const rssInput = document.getElementById('rss-url') as HTMLInputElement
+
+      if (copyBtn && rssInput) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(rssInput.value)
+            const originalText = copyBtn.textContent
+            copyBtn.textContent = '已复制！'
+            copyBtn.classList.add('bg-green-600')
+            
+            setTimeout(() => {
+              copyBtn.textContent = originalText
+              copyBtn.classList.remove('bg-green-600')
+            }, 2000)
+          } catch (err) {
+            // Fallback for older browsers
+            rssInput.select()
+            document.execCommand('copy')
+            copyBtn.textContent = '已复制！'
+            setTimeout(() => {
+              copyBtn.textContent = '复制'
+            }, 2000)
+          }
+        })
+      }
+    })
+  </script>
+</BaseLayout>

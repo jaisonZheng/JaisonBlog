@@ -54,5 +54,15 @@ const {
         ) !important;
       }
     </style>
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        const anchors = Array.from(document.querySelectorAll('footer a[href$="/rss.xml"], a[href$="/rss.xml"]'))
+        anchors.forEach((a) => {
+          a.setAttribute('href', '/subscribe')
+          if (!a.getAttribute('title')) a.setAttribute('title', 'RSS 订阅')
+        })
+      })
+    </script>
   </body>
 </html>
