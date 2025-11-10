@@ -66,7 +66,7 @@ const GET = async (context: AstroGlobal) => {
     // Contents
     title: config.title,
     description: config.description,
-    site: import.meta.env.SITE,
+    site: siteUrl,
     items: await Promise.all(
       allPostsByDate.map(async (post) => {
         const heroImageSrc = post.data.heroImage?.src
@@ -74,13 +74,16 @@ const GET = async (context: AstroGlobal) => {
           typeof heroImageSrc === 'string'
             ? heroImageSrc
             : heroImageSrc?.src
+        const absoluteHeroImageUrl = heroImageUrl
+          ? new URL(heroImageUrl, siteUrl).href
+          : undefined
 
         return {
           pubDate: post.data.publishDate,
           link: `/blog/${post.id}`,
-          customData: heroImageUrl
-            ? `<h:img src="${heroImageUrl}" />
-          <enclosure url="${heroImageUrl}" />`
+          customData: absoluteHeroImageUrl
+            ? `<h:img src="${absoluteHeroImageUrl}" />
+          <enclosure url="${absoluteHeroImageUrl}" />`
             : undefined,
           content: await renderContent(post, siteUrl),
           ...post.data

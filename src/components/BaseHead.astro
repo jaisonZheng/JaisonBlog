@@ -10,6 +10,11 @@ type Props = SiteMeta
 const { articleDate, description, ogImage, title } = Astro.props
 const GA_MEASUREMENT_ID = 'G-YMY2S3HYF5'
 
+// Debug: Check production mode
+console.log('🔍 [DEBUG] import.meta.env.PROD:', import.meta.env.PROD)
+console.log('🔍 [DEBUG] prod (from astro-pure):', prod)
+console.log('🔍 [DEBUG] import.meta.env.MODE:', import.meta.env.MODE)
+
 const siteTitle = `${title} ${config.titleDelimiter} ${config.title}`
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', Astro.url).href
@@ -109,6 +114,13 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
     }, 100)
   })
 </script> -->
+
+{
+  /* Debug info - Remove after verification */
+  !prod && (
+    <meta name="x-debug-prod" content={`prod=${prod}, PROD=${import.meta.env.PROD}, MODE=${import.meta.env.MODE}`} />
+  )
+}
 
 {
   /* Production-only scripts */

@@ -30,7 +30,7 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://jaisons-blog.vercel.app',
+  site: 'https://jaison.ink',
   // base: '/docs',
   trailingSlash: 'never',
 
