@@ -63,7 +63,7 @@ export default defineConfig({
   // static build method is not needed
   AstroPureIntegration(config), partytown({
     config: {
-      forward: ['dataLayer.push', 'clarity']
+      forward: ['dataLayer.push']
     }
   })],
   // root: './my-project-directory',
