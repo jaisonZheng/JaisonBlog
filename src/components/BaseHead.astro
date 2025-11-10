@@ -89,7 +89,7 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
   rel='alternate'
   type='application/rss+xml'
   title={config.title}
-  href={new URL('rss.xml', Astro.site).href}
+  href={`${Astro.site}rss.xml`}
 />
 
 <meta content={Astro.generator} name='generator' />
@@ -127,7 +127,7 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </script>
-      <script is:inline>
+      <script type='text/partytown' is:inline>
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
