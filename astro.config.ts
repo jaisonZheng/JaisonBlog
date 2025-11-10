@@ -25,6 +25,8 @@ import {
 } from './src/plugins/shiki-transformers.ts'
 import config from './src/site.config.ts'
 
+import partytown from '@astrojs/partytown';
+
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
@@ -50,19 +52,20 @@ export default defineConfig({
     }
   },
 
-  integrations: [
-    // astro-pure will automatically add sitemap, mdx & unocss
-    // sitemap(),
-    // mdx(),
-    AstroPureIntegration(config)
-    // (await import('@playform/compress')).default({
-    //   SVG: false,
-    //   Exclude: ['index.*.js']
-    // }),
-
-    // Temporary fix vercel adapter
-    // static build method is not needed
-  ],
+  integrations: [// astro-pure will automatically add sitemap, mdx & unocss
+  // sitemap(),
+  // mdx(),
+  // (await import('@playform/compress')).default({
+  //   SVG: false,
+  //   Exclude: ['index.*.js']
+  // }),
+  // Temporary fix vercel adapter
+  // static build method is not needed
+  AstroPureIntegration(config), partytown({
+    config: {
+      forward: ['dataLayer.push', 'clarity']
+    }
+  })],
   // root: './my-project-directory',
 
   // Prefetch Options

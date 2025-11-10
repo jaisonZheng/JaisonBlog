@@ -56,6 +56,9 @@ Sessionx.vim
 
 # build output
 dist/
+!dist/client/
+dist/client/**
+!dist/client/rss.xml
 .astro/
 .vercel/
 # logs
