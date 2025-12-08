@@ -68,3 +68,131 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
 </PageLayout>
 
 {integ.mediumZoom.enable && <MediumZoom />}
+
+<script>
+  const content = document.getElementById('content')
+  if (content) {
+    const headings = Array.from(content.querySelectorAll('h1, h2, h3, h4, h5')) as HTMLElement[]
+    const isHeading = (el: Element | null) => !!el && /^H[1-6]$/.test(el.tagName)
+    const getRank = (el: Element) => Number(el.tagName.slice(1))
+
+    headings.forEach((heading) => {
+      if (heading.dataset.foldInit === 'true') return
+
+      const level = getRank(heading)
+      const section = document.createElement('div')
+      section.className = 'fold-content'
+
+      let cursor = heading.nextElementSibling
+      while (cursor && (!isHeading(cursor) || getRank(cursor) > level)) {
+        const next = cursor.nextElementSibling
+        section.appendChild(cursor)
+        cursor = next
+      }
+
+      if (!section.childElementCount) return
+
+      heading.dataset.foldInit = 'true'
+      heading.classList.add('fold-heading')
+      heading.setAttribute('tabindex', '0')
+      heading.setAttribute('role', 'button')
+      heading.setAttribute('aria-expanded', 'true')
+
+      const autoLink = heading.querySelector<HTMLAnchorElement>(
+        'a[aria-hidden="true"], a[href^="#"]'
+      )
+      if (autoLink) {
+        autoLink.dataset.foldAnchor = 'true'
+        autoLink.textContent = '#'.repeat(level)
+      }
+
+      heading.insertAdjacentElement('afterend', section)
+
+      const toggle = () => {
+        const isOpen = heading.getAttribute('aria-expanded') === 'true'
+        heading.setAttribute('aria-expanded', (!isOpen).toString())
+        section.dataset.collapsed = isOpen ? 'true' : 'false'
+      }
+
+      heading.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement | null
+        if (target?.closest('a')) return
+        toggle()
+      })
+
+      heading.addEventListener('keydown', (event) => {
+        const keyboardEvent = event as KeyboardEvent
+        if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
+          keyboardEvent.preventDefault()
+          toggle()
+        }
+      })
+    })
+
+    const titleToggle = document.querySelector('#content-header h1') as HTMLElement | null
+    if (titleToggle) {
+      titleToggle.style.cursor = 'pointer'
+      titleToggle.setAttribute('role', 'button')
+      titleToggle.setAttribute('tabindex', '0')
+
+      const setAll = (expanded: boolean) => {
+        headings.forEach((h) => {
+          const section = h.nextElementSibling as HTMLElement | null
+          h.setAttribute('aria-expanded', expanded.toString())
+          if (section?.classList.contains('fold-content')) {
+            section.dataset.collapsed = expanded ? 'false' : 'true'
+          }
+        })
+      }
+
+      const handleToggleAll = () => {
+        const total = headings.length
+        const collapsed = headings.filter((h) => h.getAttribute('aria-expanded') === 'false').length
+        if (collapsed === total) {
+          setAll(true)
+        } else {
+          setAll(false)
+        }
+      }
+
+      titleToggle.addEventListener('click', handleToggleAll)
+      titleToggle.addEventListener('keydown', (event) => {
+        const keyboardEvent = event as KeyboardEvent
+        if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
+          keyboardEvent.preventDefault()
+          handleToggleAll()
+        }
+      })
+    }
+  }
+</script>
+
+<style is:global>
+  .fold-heading {
+    position: relative;
+    cursor: pointer;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  /* Override default hover/target styles of heading anchors */
+  .fold-heading > a[data-fold-anchor='true'] {
+    opacity: 0 !important;
+    margin-inline-start: 0.75rem;
+    transition: opacity 0.15s ease;
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+  }
+
+  .fold-heading[aria-expanded='false'] > a[data-fold-anchor='true'] {
+    opacity: 1 !important;
+  }
+
+  .fold-content {
+    transition: opacity 0.2s ease;
+  }
+
+  .fold-content[data-collapsed='true'] {
+    display: none;
+    opacity: 0;
+  }
+</style>
