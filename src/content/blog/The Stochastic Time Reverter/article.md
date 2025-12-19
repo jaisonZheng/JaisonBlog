@@ -3,6 +3,9 @@ title: 随机时间回溯器
 description: 祝你平安喜乐。
 publishDate: 2025-12-19
 language: 中文
+tags:
+  - 小说
+  - 随笔
 ---
 ## 温和地走进那个雨夜
 --- 
