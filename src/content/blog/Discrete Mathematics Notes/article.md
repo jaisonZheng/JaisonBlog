@@ -177,10 +177,12 @@ tags:
 	
 	- 等值式
 		- 量词否定等值式
-			$$\begin{aligned}
+			$$
+			\begin{aligned}
 			\lnot \forall xA(x) \iff \exists x \lnot A(x) \\ 
 			\lnot \exists xA(x) \iff \forall x \lnot A(x)
-			\end{aligned}$$
+			\end{aligned}
+			$$
 		- 量词辖域收缩与扩张等值式
 			就是说量词可以直接限定这个量词对应的谓词（而无需限定整个式子）
 			比如：$\forall x(A(x) \lor B)\iff \forall xA(x)\lor B$
