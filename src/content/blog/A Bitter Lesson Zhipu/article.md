@@ -1,5 +1,5 @@
 ---
-title: 一次决策错误
+title: 一次决策失败
 description: A Bitter Lesson
 publishDate: 2026-01-06
 language: 中文
