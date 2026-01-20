@@ -1,7 +1,7 @@
 ---
 title: 大一寒假可以干嘛？
 description: 给学弟学妹们的建议
-publishDate: 2026-01-12
+publishDate: 2026-01-19
 language: 中文
 tags:
   - Taste
@@ -79,11 +79,11 @@ tags:
 	[labuladong](https://labuladong.online/zh/)
 - 我的游戏推荐
 	[3A大作种草与拔草](https://jaison.ink/blog/summervacation3agame/article)
-	![](IMG-20260112230752443.png)
+	![](IMG-20260119215919132.png)
 - 我的旅游攻略
 	[如何在资金有限的情况下获得更好的旅行体验？](https://jaison.ink/blog/穷游攻略/)
-	![](IMG-20260112231520404.jpeg)
-	![](EBCB00DD-3937-4B3C-878F-4CFC62060ED5_1_105_c.jpeg)
-	![](95D50940-F64B-4BCB-8B5F-DB439A196838.jpeg)
+	![](IMG-20260119215919997.jpeg)
+	![](IMG-20260119215920150.jpeg)
+	![](IMG-20260119215920387.jpeg)
 
 **（预）祝大家寒假快乐！**
