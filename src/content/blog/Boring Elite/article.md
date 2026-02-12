@@ -1,7 +1,7 @@
 ---
 title: 在广东最好的985，成为一群无聊的精英
 description: 连我的写作能力也被AI戕害了
-publishDate: 2026-02-12
+publishDate: 2026-02-11
 language: 中文
 tags:
   - 随笔
