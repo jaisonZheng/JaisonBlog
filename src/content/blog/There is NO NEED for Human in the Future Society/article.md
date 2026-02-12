@@ -6,7 +6,7 @@ language: 中文
 tags:
   - 随笔
 ---
-Future Society has NO NEED for Common Humans.
+There will be NO NEED for Common Humans in the Future Society.
 
 当前模型已经可以在数据充足、正误判断明确且反馈易获得的任务（如应试、比赛、编程）上，达到人类顶尖水准（前1%）；在部分任务（如软件工程）上堪比人类小规模中级团队水平。
 
