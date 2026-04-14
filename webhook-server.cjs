@@ -1,7 +1,7 @@
 const http = require('http');
 const { exec } = require('child_process');
 
-const PORT = 8080;
+const PORT = 10086;
 const DEPLOY_SCRIPT_PATH = './deploy.sh';
 
 const server = http.createServer((req, res) => {
