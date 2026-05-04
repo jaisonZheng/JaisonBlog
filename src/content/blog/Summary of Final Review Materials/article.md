@@ -6,9 +6,19 @@ language: 中文
 tags:
   - 汇总
 ---
-> 又是一年热带风味冰红茶
+> 更新了一些真题、复习资料、笔记。
+
+## 抱佛脚的哲学
+ - 不求甚解：管它到底为啥，能写出来就完了。
+ - 舍难求易：不要在难题上花太多时间，复习时不会直接查AI。
+ - 拟合考试：做真题，面向考试的学习。
+
+举个例子：
+像数据结构与算法实验这样的考试，要先保证自己能完全不用AI地手撕掉简单题，再考虑学习图论那些比较难的算法。
+
 ## 期末真题
 > 在你上集市找倒狗购买前，可以来这里先看看有没有。
+
 - 计组、离散数学、数据结构与算法
 	[Aeolian分享的往年真题帖](https://ssemarket.cn/new/postdetail/4059)
 - 大物真题
@@ -24,18 +34,45 @@ tags:
 	https://wwavx.lanzoum.com/b0139eqa3i   
 	密码:3i99
 - 程序设计1真题
-	https://wwavx.lanzoum.com/b0139eqa3i   
-	密码:3i99
+	https://wwavx.lanzoum.com/b0139eqabg
+	密码:fkgw
 - 英语A班真题
 	https://wwavx.lanzoum.com/b0139eqa1g   
 	密码:gqq6
-	
+- 英语B班真题
+	https://wwavx.lanzoum.com/b0139fkzte   
+	密码:4zh4
+- 数据库真题
+	https://wwavx.lanzoum.com/b0139fl09a   
+	密码:h52x
+- 概率统计真题
+	https://wwavx.lanzoum.com/b0139fl1sf   
+	密码:29dx
+- 数据结构与算法真题
+	https://wwavx.lanzoum.com/b0139fky9i   
+	密码:4qzf
+- 马原真题
+	https://wwavx.lanzoum.com/b0139fky2b   
+	密码:3j73
+- 操作系统真题
+	https://wwavx.lanzoum.com/b0139fkzid   
+	密码:4vgx
+- 毛概复习资料
+	https://wwavx.lanzoum.com/b0139fl22f   
+	密码:6wwz
+
 > 期待更多分享。
 
 ## 期末复习笔记
 这一部分本来是打算全部整理好再发给大家的，但是后来想想，其实大家都可以分享自己版本的笔记，不能把这活给“独占”了🤣。
 
 某不愿透露网名同学的笔记会偏**详细**一点（平时认真上课期末全面看），书苏的笔记会偏**简略**一点（不认真上课期末抱佛脚）
+
+### tdc学长/学姐的笔记
+其中有数据库、编译原理、NLP、计网、操作系统、机器学习等课程的笔记。
+（小部分笔记内容极为详细，但估计会比PPT条理更清晰。）
+[笔记Gitee链接](https://gitee.com/tdc22331083/note)
+
 ### 某不愿透露网名同学的笔记
 > 某不愿透露网名同学的博客可通过侧边栏目录进行跳转。
 - [计算机组成原理笔记](https://www.sparklerain.top/posts/8d4b7ae1/)
@@ -43,6 +80,7 @@ tags:
 - [离散数学笔记](https://www.sparklerain.top/posts/3fb56f9d/)
 - [线性代数笔记](https://www.sparklerain.top/posts/c23efd5b/)
 	基于Gilbert Strang的MIT18.06（国内的线性代数课狗都不学（开玩笑的））。
+他的私货：[力扣灵茶山艾府题单](https://huxulm.github.io/lc-rating/v0/zen)
 
 --- 
 ### 书苏的笔记
@@ -76,7 +114,7 @@ tags:
 
 #### 大二上
 - 计算机组成原理
-	文件夹刚新建。元旦更新。
+	文件夹刚新建。元旦更新不了了。。。。。
 - 数据结构与算法
 	文件夹里有一坨，未针对学校课程进行拟合。元旦更新。
 - 离散数学基础
@@ -144,5 +182,8 @@ tags:
 
 但是还是希望大家可以出自己的一份力，建设更好的软工。
 
-> 本文档会在元旦发布新版本。如果你在本文档下面评论了资源，将会自动纳入到新版本的内容当中。（会注明来源，当然你也可以备注不想纳入新版本文档当中。）
+> 本文档会在元旦发布新版本。如果你在本文档下面评论了资源，将会自动纳入到新版本的内容当中。（会注明来源，当然你也可以备注不想纳入新版本文档当中）
+
+本文档的动态更新版本（博客版）：
+https://jaison.ink/blog/summary-of-final-review-materials/article
 
