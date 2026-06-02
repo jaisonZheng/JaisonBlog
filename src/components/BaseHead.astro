@@ -26,18 +26,15 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png' />
 <link rel='manifest' href='/favicon/site.webmanifest' />
 
-{/* Font preloads */}
-<link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
-<link
-  rel='preload'
-  href='/fonts/Satoshi-VariableItalic.ttf'
-  as='font'
-  type='font/ttf'
-  crossorigin
-/>
+{/* Satoshi via Fontshare CDN */}
+<link href='https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap' rel='stylesheet' />
 
 {/* LXGW Neo ZhiSong via ZeoSeven CDN */}
 <link rel='stylesheet' href='https://fontsapi.zeoseven.com/22/main/result.css' />
+
+{/* Source Han Serif (Noto Serif SC) via Google Fonts CDN (国内镜像) */}
+<link rel='preconnect' href='https://fonts.loli.net' />
+<link href='https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;700&display=swap' rel='stylesheet' />
 
 {/* Handwriting font (Caveat via Bunny Fonts) */}
 <link rel='preconnect' href='https://fonts.bunny.net' />

@@ -1,18 +1,12 @@
 /* Font */
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.ttf');
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-VariableItalic.ttf');
-  font-style: italic;
-  font-display: swap;
-}
 html {
   font-family: 'LXGW Neo ZhiSong', 'Satoshi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* Article titles */
+#content-header h1 {
+  font-family: 'Noto Serif SC', 'LXGW Neo ZhiSong', 'Satoshi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 700;
 }
 
 /* Theme */
