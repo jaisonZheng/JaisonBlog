@@ -81,3 +81,6 @@ ignore.*
 bunfig.toml
 /src/content/blog/test.*
 /test/
+
+# fonts (kept in working tree but not tracked)
+public/fonts/
