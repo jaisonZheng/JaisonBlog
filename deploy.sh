@@ -41,7 +41,7 @@ finish() {
     if (( SWITCHED )); then
       ln -s "$PREVIOUS" "$BLOG_PATH/dist.rollback"
       mv -Tf "$BLOG_PATH/dist.rollback" "$BLOG_PATH/dist"
-      pm2 restart "$PM2_APP" --update-env || true
+      pm2 restart "$PM2_APP" || true
       health_check || echo 'ERROR: rollback health check failed'
     fi
     [[ -z "$STAGE" ]] || rm -rf -- "$STAGE"
@@ -96,7 +96,7 @@ PREVIOUS=$(readlink -f "$BLOG_PATH/dist")
 ln -s "$STAGE/dist" "$BLOG_PATH/dist.next"
 mv -Tf "$BLOG_PATH/dist.next" "$BLOG_PATH/dist"
 SWITCHED=1
-pm2 restart "$PM2_APP" --update-env
+pm2 restart "$PM2_APP"
 health_check
 printf '%s\n' "$TARGET" > "$STATE/deployed-commit"
 # Retain dependencies needed by current and rollback builds only.
