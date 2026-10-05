@@ -84,3 +84,8 @@ bunfig.toml
 
 # fonts (kept in working tree but not tracked)
 public/fonts/
+
+# Server deployment state and logs
+.deploy/
+logs/
+deploy.log
