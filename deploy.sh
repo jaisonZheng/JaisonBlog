@@ -16,11 +16,16 @@ flock -w 1800 9 || { echo 'Another deployment holds the lock'; exit 1; }
 LOG_FILE="$BLOG_PATH/logs/deploy-$(date +%Y%m%d-%H%M%S).log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 export CI=true GIT_TERMINAL_PROMPT=0
+# Bound V8 and image-worker memory on the 2 GB Tencent host.
+export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=512}"
+export UV_THREADPOOL_SIZE="${UV_THREADPOOL_SIZE:-1}"
+export MALLOC_ARENA_MAX="${MALLOC_ARENA_MAX:-2}"
+export VIPS_CONCURRENCY="${VIPS_CONCURRENCY:-1}"
 # Proxy applies only to this process and its children, never to the whole server.
 export HTTPS_PROXY="$DEPLOY_PROXY" HTTP_PROXY="$DEPLOY_PROXY" ALL_PROXY="$DEPLOY_PROXY"
 export https_proxy="$DEPLOY_PROXY" http_proxy="$DEPLOY_PROXY" all_proxy="$DEPLOY_PROXY"
 export NO_PROXY='localhost,127.0.0.1,::1' no_proxy='localhost,127.0.0.1,::1'
-STAGE='' PREVIOUS='' SWITCHED=0 SUCCESS=0
+STAGE='' PREVIOUS='' SWITCHED=0
 health_check() {
   for _ in {1..30}; do
     if curl --noproxy '*' -fsS --max-time 5 "$HEALTH_URL" -o /dev/null; then return 0; fi
@@ -72,6 +77,10 @@ if [[ ! -f "$DEPS/.complete" ]]; then
   mkdir -p "$DEPS"
   cp package.json package-lock.json "$DEPS/"
   (cd "$DEPS"; npm ci --include=dev --no-audit --no-fund --registry=https://registry.npmmirror.com)
+  if [[ -d "$BLOG_PATH/node_modules/.astro/assets" ]]; then
+    mkdir -p "$DEPS/node_modules/.astro"
+    cp -al "$BLOG_PATH/node_modules/.astro/assets" "$DEPS/node_modules/.astro/"
+  fi
   touch "$DEPS/.complete"
 fi
 ln -s "$DEPS/node_modules" "$STAGE/node_modules"
@@ -90,7 +99,6 @@ SWITCHED=1
 pm2 restart "$PM2_APP" --update-env
 health_check
 printf '%s\n' "$TARGET" > "$STATE/deployed-commit"
-SUCCESS=1
 # Retain dependencies needed by current and rollback builds only.
 for dependency in "$STATE"/dependencies/*; do
   [[ -d "$dependency" ]] || continue
