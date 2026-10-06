@@ -12,9 +12,10 @@ HEALTH_URL="${HEALTH_URL:-http://127.0.0.1:4321/}"
 STATE="$BLOG_PATH/.deploy"
 mkdir -p "$STATE/releases" "$STATE/dependencies" "$BLOG_PATH/logs"
 exec 9>"$STATE/deploy.lock"
-flock -w 1800 9 || { echo 'Another deployment holds the lock'; exit 1; }
+flock -w "${DEPLOY_LOCK_WAIT:-1800}" 9 || { echo 'Another deployment is running; the next check will catch up.'; exit 0; }
 LOG_FILE="$BLOG_PATH/logs/deploy-$(date +%Y%m%d-%H%M%S).log"
 exec > >(tee -a "$LOG_FILE") 2>&1
+find "$BLOG_PATH/logs" -name 'deploy-*.log' -mtime +30 -delete
 export CI=true GIT_TERMINAL_PROMPT=0
 # Bound V8 and image-worker memory on the 2 GB Tencent host.
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=512}"
@@ -109,5 +110,4 @@ for dependency in "$STATE"/dependencies/*; do
   [[ "$(readlink -f "$BLOG_PATH/node_modules" 2>/dev/null || true)" == "$dependency/node_modules" ]] && KEEP=1
   (( KEEP )) || rm -rf -- "$dependency"
 done
-find "$BLOG_PATH/logs" -name 'deploy-*.log' -mtime +30 -delete
 echo "Successfully deployed $TARGET at $(date -Is)"

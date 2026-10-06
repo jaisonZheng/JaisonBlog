@@ -1,0 +1,13 @@
+[Unit]
+Description=Reconcile the blog with GitHub main
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/root/JaisonBlog
+Environment=DEPLOY_LOCK_WAIT=0
+ExecStart=/bin/bash -lc 'exec /bin/bash /root/JaisonBlog/deploy.sh'
+TimeoutStartSec=45min
+Nice=10

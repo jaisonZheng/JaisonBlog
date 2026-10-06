@@ -1,6 +1,8 @@
 # 腾讯云博客自动更新
 
-GitHub `main` push → `https://jaison.ink/webhook` → 签名校验 → 部署脚本 → GitHub HTTPS fetch → 构建 → 切换 dist → PM2 重启 → HTTP 健康检查。
+即时更新：GitHub `main` push → `https://jaison.ink/webhook` → 签名校验 → 部署脚本 → GitHub HTTPS fetch → 构建 → 切换 dist → PM2 重启 → HTTP 健康检查。
+
+兜底更新：`jaisonblog-deploy.timer` 在启动后 2 分钟检查，此后每次任务结束后约 3 分钟通过代理主动检查 GitHub。GitHub 无法连接腾讯云 webhook 时，仍能自动追上最新提交；网络或构建失败会在下次检查重试。加上构建时间，新文章通常在几分钟内上线。提交未变化只检查，不重复构建。
 
 服务器配置位于 `/etc/jaisonblog/deploy.env`，webhook 密钥位于 `/etc/jaisonblog/webhook.secret`（仅 root 可读，不能提交）。Nginx 将 `/webhook` 转发到 `127.0.0.1:10086`。PM2 的 `webhook-listener` 启动仓库根目录的 `webhook-server.cjs`。
 
@@ -24,3 +26,21 @@ ssh myserver 'sudo -i bash /root/JaisonBlog/deploy.sh'
 相同提交会跳过重建；需要强制重建时设置 `FORCE_DEPLOY=1`。状态文件为 `/root/JaisonBlog/.deploy/deployed-commit`。
 
 本地 `origin` 的 push URL 应只保留 GitHub，避免 Gitee 容量或认证失败影响 `git push origin main`。分支推送、删除事件和非目标仓库事件不会部署。
+
+安装或更新定时兜底（启用开机启动）：
+
+```sh
+sudo cp /root/JaisonBlog/deployment/jaisonblog-deploy.{service,timer} /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now jaisonblog-deploy.timer
+sudo systemctl start jaisonblog-deploy.service
+```
+
+查看主动更新状态：
+
+```sh
+ssh myserver 'sudo systemctl list-timers jaisonblog-deploy.timer --no-pager'
+ssh myserver 'sudo journalctl -u jaisonblog-deploy.service -n 30 --no-pager'
+```
+
+定时检查发现 webhook 构建正在运行时会直接跳过，不启动并发构建；下一轮再检查。

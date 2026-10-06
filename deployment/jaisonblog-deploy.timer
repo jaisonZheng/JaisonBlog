@@ -1,0 +1,11 @@
+[Unit]
+Description=Catch up blog updates when GitHub webhook delivery fails
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=3min
+RandomizedDelaySec=15s
+Unit=jaisonblog-deploy.service
+
+[Install]
+WantedBy=timers.target
